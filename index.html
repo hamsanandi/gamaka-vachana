@@ -109,14 +109,16 @@ body {
   letter-spacing: 0.05em; text-transform: none;
 }
 
-/* ── Video Grid Layout ── */
+/* ── Updated 3-Column Video Grid Layout ── */
 .video-grid {
-  display: grid; grid-template-columns: repeat(2, 1fr);
-  gap: 20px; padding: 0 20px;
+  display: grid; 
+  grid-template-columns: repeat(3, 1fr); /* 3 items per line */
+  gap: 16px; 
+  padding: 0 20px;
 }
 .video-card {
   background: var(--section-bg); border: 1px solid var(--border);
-  border-radius: 10px; overflow: hidden; padding: 12px;
+  border-radius: 10px; overflow: hidden; padding: 10px;
 }
 .video-wrapper {
   position: relative; padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
@@ -125,10 +127,10 @@ body {
 .video-wrapper iframe {
   position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
 }
-.video-meta { margin-top: 10px; padding: 2px 4px; }
-.video-title { font-family: 'Cinzel', serif; font-size: 0.82rem; font-weight: 600; color: var(--text); }
-.video-title.kn { font-family: 'Noto Serif Kannada', serif; text-transform: none; font-size: 0.9rem; letter-spacing: 0.02em; }
-.video-caption { font-size: 0.82em; color: var(--meta); margin-top: 3px; }
+.video-meta { margin-top: 8px; padding: 2px 4px; }
+.video-title { font-family: 'Cinzel', serif; font-size: 0.80rem; font-weight: 600; color: var(--text); line-height: 1.4; }
+.video-title.kn { font-family: 'Noto Serif Kannada', serif; text-transform: none; font-size: 0.88rem; letter-spacing: 0.02em; }
+.video-caption { font-size: 0.82em; color: var(--meta); margin-top: 4px; line-height: 1.5; }
 .video-caption.kn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.76rem; }
 
 /* ── Navigation Footer ── */
@@ -142,9 +144,14 @@ body {
 a.back-link { color: var(--gold); text-decoration: none; font-weight: 500; }
 a.back-link:hover { text-decoration: underline; }
 
-@media (max-width: 768px) {
+/* ── Responsive Viewport Adjustments ── */
+@media (max-width: 800px) {
+  .video-grid { grid-template-columns: repeat(2, 1fr); } /* Smooth shift to 2-columns on tablets */
+}
+
+@media (max-width: 560px) {
   .info-container { grid-template-columns: 1fr; }
-  .video-grid { grid-template-columns: 1fr; }
+  .video-grid { grid-template-columns: 1fr; } /* Stack vertically on phones */
 }
 </style>
 </head>
@@ -206,7 +213,7 @@ const STR = {
     linkDesc: "ಉತ್ತರ ಅಮೆರಿಕಾದಲ್ಲಿ ಶಾಸ್ತ್ರೀಯ ಕಾವ್ಯ ವಾಚನ ಪ್ರಕಾರವನ್ನು ಪ್ರೋತ್ಸಾಹಿಸುವ ಗಮಕ ಕಲಾ ವೇದಿಕೆಯ ಅಧಿಕೃತ ಜಾಲತಾಣವನ್ನು ವೀಕ್ಷಿಸಿ.",
     backLink: "← ಮುಖ್ಯ ಪುಟಕ್ಕೆ ಹಿಂತಿರುಗಿ",
     descHtml: `
-      <p class="kn">ಗಮಕ ಅಥವಾ ಕಾವ್ಯವಾಚನವು ಕರ್ನಾಟಕದ ವಿಶಿಷ್ಟ ಹಾಗೂ ಹೆಮ್ಮೆಯ ಶಾಸ್ತ್ರೀಯ ಕಲಾಪ್ರಕಾರವಾಗಿದೆ. ಇದು ಪ್ರೌಢ ಕನ್ನಡ ಕಾವ್ಯ ಸಾಹಿತ್ಯ ಮತ್ತು ಸಂಗೀತದ ಅತ್ಯದ್ಭುತ ಸಮ್ಮಿಲನವಾಗಿದೆ. ಸಾಂಪ್ರದಾಯಿಕ ವಾಚನಗಳಲ್ಲಿ ಪ್ರಸಿದ್ಧ ಕಾವ್ಯಭಾಗಗಳನ್ನು ಯಾವುದೇ ನಿರ್ದಿಷ್ಟ ತಾಳದ ಚೌಕಟ್ಟಿಗೆ ಬದ್ಧಗೊಳಿಸದೆ, ಕಾವ್ಯದ ಭಾವಕ್ಕೆ ತಕ್ಕುದಾದ ರಾಗ ಅಥವಾ ಧಾಟಿಗಳನ್ನು ಆಯ್ದುಕೊಂಡು, ರಸೋತ್ಪತ್ತಿಗೆ ಪ್ರಮುಖ ಆದ್ಯತೆ ನೀಡಿ ಹಾಡಲಾಗುತ್ತದೆ.</p>
+      <p class="kn">ಗಮಕ ಅಥವಾ ಕಾವ್ಯವಾಚನವು ಕರ್ನಾಟಕದ ವಿಶಿಷ್ಟ ಹಾಗೂ ಹೆಮ್ಮೆಯ ಶಾಸ್ತ್ರೀಯ ಕಲಾಪ್ರಕಾರವಾಗಿದೆ. ಇದು ಪ್ರೌಢ ಕನ್ನಡ ಕಾವ್ಯ ಸಾಹಿತ್ಯ ಮತ್ತು ಸಂಗೀತದ ಅತ್ಯದ್ಭುತ ಸಮ್ಮಿಲನವಾಗಿದೆ. ಸಾಂಪ್ರದಾಂಕಿಕ ವಾಚನಗಳಲ್ಲಿ ಪ್ರಸಿದ್ಧ ಕಾವ್ಯಭಾಗಗಳನ್ನು ಯಾವುದೇ ನಿರ್ದಿಷ್ಟ ತಾಳದ ಚೌಕಟ್ಟಿಗೆ ಬದ್ಧಗೊಳಿಸದೆ, ಕಾವ್ಯದ ಭಾವಕ್ಕೆ ತಕ್ಕುದಾದ ರಾಗ ಅಥವಾ ಧಾಟಿಗಳನ್ನು ಆಯ್ದುಕೊಂಡು, ರಸೋತ್ಪತ್ತಿಗೆ ಪ್ರಮುಖ ಆದ್ಯತೆ ನೀಡಿ ಹಾಡಲಾಗುತ್ತದೆ.</p>
       <p class="kn">ಈ ಕಲಾಪ್ರಕಾರದಲ್ಲಿ ಸಾಮಾನ್ಯವಾಗಿ ಇಬ್ಬರು ಕಲಾವಿದರು ಜೊತೆಯಾಗಿ ಭಾಗವಹಿಸುತ್ತಾರೆ: ಒಬ್ಬರು ಕಾವ್ಯದ ಪದ್ಯಗಳನ್ನು ಸುಶ್ರಾವ್ಯವಾಗಿ ವಾಚಿಸುವ 'ಗಮಕಿ', ಮತ್ತು ಮತ್ತೊಬ್ಬರು ಆ ಪದ್ಯಗಳ ಸಾಹಿತ್ಯಿಕ ಚೌಕಟ್ಟು, ಒಳಹೊರಗು ಹಾಗೂ ತಾತ್ಪರ್ಯಗಳನ್ನು ವಿವರಣಾತ್ಮಕವಾಗಿ ಪ್ರಸ್ತುತಪಡಿಸುವ 'ವ್ಯಾಖ್ಯಾನಕಾರರು'. ಕುಮಾರವ್ಯಾಸ ಭಾರತ, ಲಕ್ಷ್ಮೀಶನ ಜೈಮಿನಿ ಭಾರತ, ತೊರವೆ ರಾಮಾಯಣ ಮುಂತಾದ ಅದ್ಭುತ ಕಾವ್ಯ ಪರಂಪರೆಯನ್ನು ಇಂದಿಗೂ ಜೀವಂತವಾಗಿರಿಸುವಲ್ಲಿ ಗಮಕ ಕಲೆ ಪ್ರಮುಖ ಪಾತ್ರ ವಹಿಸಿದೆ.</p>
     `
   }
