@@ -109,12 +109,10 @@ body {
   letter-spacing: 0.05em; text-transform: none;
 }
 
-/* ── Updated 3-Column Video Grid Layout ── */
+/* ── High-Fidelity 3-Column Video Grid ── */
 .video-grid {
-  display: grid; 
-  grid-template-columns: repeat(3, 1fr); /* 3 items per line */
-  gap: 16px; 
-  padding: 0 20px;
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 16px; padding: 0 20px;
 }
 .video-card {
   background: var(--section-bg); border: 1px solid var(--border);
@@ -127,7 +125,27 @@ body {
 .video-wrapper iframe {
   position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
 }
-.video-meta { margin-top: 8px; padding: 2px 4px; }
+
+/* HD Thumbnail Placeholder Overlays */
+.video-placeholder {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background-size: cover; background-position: center; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.play-btn-overlay {
+  width: 48px; height: 34px; background-color: rgba(26, 18, 8, 0.75);
+  border-radius: 8px; position: relative; transition: background-color 0.18s, transform 0.18s;
+}
+.video-placeholder:hover .play-btn-overlay {
+  background-color: var(--gold); transform: scale(1.08);
+}
+.play-btn-overlay::after {
+  content: ''; position: absolute; top: 10px; left: 20px;
+  border-style: solid; border-width: 7px 0 7px 11px;
+  border-color: transparent transparent transparent #ffffff;
+}
+
+.video-meta { margin-top: 10px; padding: 2px 4px; }
 .video-title { font-family: 'Cinzel', serif; font-size: 0.80rem; font-weight: 600; color: var(--text); line-height: 1.4; }
 .video-title.kn { font-family: 'Noto Serif Kannada', serif; text-transform: none; font-size: 0.88rem; letter-spacing: 0.02em; }
 .video-caption { font-size: 0.82em; color: var(--meta); margin-top: 4px; line-height: 1.5; }
@@ -144,14 +162,13 @@ body {
 a.back-link { color: var(--gold); text-decoration: none; font-weight: 500; }
 a.back-link:hover { text-decoration: underline; }
 
-/* ── Responsive Viewport Adjustments ── */
+/* ── Responsive Viewports ── */
 @media (max-width: 800px) {
-  .video-grid { grid-template-columns: repeat(2, 1fr); } /* Smooth shift to 2-columns on tablets */
+  .video-grid { grid-template-columns: repeat(2, 1fr); }
 }
-
-@media (max-width: 560px) {
+@media (max-width: 580px) {
   .info-container { grid-template-columns: 1fr; }
-  .video-grid { grid-template-columns: 1fr; } /* Stack vertically on phones */
+  .video-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -213,7 +230,7 @@ const STR = {
     linkDesc: "ಉತ್ತರ ಅಮೆರಿಕಾದಲ್ಲಿ ಶಾಸ್ತ್ರೀಯ ಕಾವ್ಯ ವಾಚನ ಪ್ರಕಾರವನ್ನು ಪ್ರೋತ್ಸಾಹಿಸುವ ಗಮಕ ಕಲಾ ವೇದಿಕೆಯ ಅಧಿಕೃತ ಜಾಲತಾಣವನ್ನು ವೀಕ್ಷಿಸಿ.",
     backLink: "← ಮುಖ್ಯ ಪುಟಕ್ಕೆ ಹಿಂತಿರುಗಿ",
     descHtml: `
-      <p class="kn">ಗಮಕ ಅಥವಾ ಕಾವ್ಯವಾಚನವು ಕರ್ನಾಟಕದ ವಿಶಿಷ್ಟ ಹಾಗೂ ಹೆಮ್ಮೆಯ ಶಾಸ್ತ್ರೀಯ ಕಲಾಪ್ರಕಾರವಾಗಿದೆ. ಇದು ಪ್ರೌಢ ಕನ್ನಡ ಕಾವ್ಯ ಸಾಹಿತ್ಯ ಮತ್ತು ಸಂಗೀತದ ಅತ್ಯದ್ಭುತ ಸಮ್ಮಿಲನವಾಗಿದೆ. ಸಾಂಪ್ರದಾಂಕಿಕ ವಾಚನಗಳಲ್ಲಿ ಪ್ರಸಿದ್ಧ ಕಾವ್ಯಭಾಗಗಳನ್ನು ಯಾವುದೇ ನಿರ್ದಿಷ್ಟ ತಾಳದ ಚೌಕಟ್ಟಿಗೆ ಬದ್ಧಗೊಳಿಸದೆ, ಕಾವ್ಯದ ಭಾವಕ್ಕೆ ತಕ್ಕುದಾದ ರಾಗ ಅಥವಾ ಧಾಟಿಗಳನ್ನು ಆಯ್ದುಕೊಂಡು, ರಸೋತ್ಪತ್ತಿಗೆ ಪ್ರಮುಖ ಆದ್ಯತೆ ನೀಡಿ ಹಾಡಲಾಗುತ್ತದೆ.</p>
+      <p class="kn">ಗಮಕ ಅಥವಾ ಕಾವ್ಯವಾಚನವು ಕರ್ನಾಟಕದ ವಿಶಿಷ್ಟ ಹಾಗೂ ಹೆಮ್ಮೆಯ ಶಾಸ್ತ್ರೀಯ ಕಲಾಪ್ರಕಾರವಾಗಿದೆ. ಇದು ಪ್ರೌಢ ಕನ್ನಡ ಕಾವ್ಯ ಸಾಹಿತ್ಯ ಮತ್ತು ಸಂಗೀತದ ಅತ್ಯದ್ಭುತ ಸಮ್ಮಿಲನವಾಗಿದೆ. ಸಾಂಪ್ರದಾಂಕಿಕ ವಾಚನಗಳಲ್ಲಿ ಪ್ರಸಿದ್ಧ ಕಾವ್ಯಭಾಗಗಳನ್ನು ಯಾವುದೇ ನಿರ್ದಿಷ್ಟ ತಾಳದ ಚೌಕಟ್ಟಿಗೆ ಬದ್ಧಗೊಳಿಸದೆ, ಕಾವ್ಯದ ಭಾವಕ್ಕೆ ತಕ್ಕುದಾದ ರಾಗ ಅಥವಾ ಧಾಟಿಗಳನ್ನು ಆಯ್ದುಕೊಂಡು, ರಸೋತ್ಪತ್ತಿಗೆ ಪ್ರಮುಖ ಆದ್ಯತೆ ನೀಡಿಹಾಡಲಾಗುತ್ತದೆ.</p>
       <p class="kn">ಈ ಕಲಾಪ್ರಕಾರದಲ್ಲಿ ಸಾಮಾನ್ಯವಾಗಿ ಇಬ್ಬರು ಕಲಾವಿದರು ಜೊತೆಯಾಗಿ ಭಾಗವಹಿಸುತ್ತಾರೆ: ಒಬ್ಬರು ಕಾವ್ಯದ ಪದ್ಯಗಳನ್ನು ಸುಶ್ರಾವ್ಯವಾಗಿ ವಾಚಿಸುವ 'ಗಮಕಿ', ಮತ್ತು ಮತ್ತೊಬ್ಬರು ಆ ಪದ್ಯಗಳ ಸಾಹಿತ್ಯಿಕ ಚೌಕಟ್ಟು, ಒಳಹೊರಗು ಹಾಗೂ ತಾತ್ಪರ್ಯಗಳನ್ನು ವಿವರಣಾತ್ಮಕವಾಗಿ ಪ್ರಸ್ತುತಪಡಿಸುವ 'ವ್ಯಾಖ್ಯಾನಕಾರರು'. ಕುಮಾರವ್ಯಾಸ ಭಾರತ, ಲಕ್ಷ್ಮೀಶನ ಜೈಮಿನಿ ಭಾರತ, ತೊರವೆ ರಾಮಾಯಣ ಮುಂತಾದ ಅದ್ಭುತ ಕಾವ್ಯ ಪರಂಪರೆಯನ್ನು ಇಂದಿಗೂ ಜೀವಂತವಾಗಿರಿಸುವಲ್ಲಿ ಗಮಕ ಕಲೆ ಪ್ರಮುಖ ಪಾತ್ರ ವಹಿಸಿದೆ.</p>
     `
   }
@@ -236,27 +253,14 @@ const VIDEOS = [
     en: { title: "Seetaramakalyana", caption: "A short kavya written by Ramaprasad K V." },
     kn: { title: "ಸೀತಾರಾಮಕಲ್ಯಾಣ", caption: "ರಾಮಪ್ರಸಾದ್ ಅವರ ಖಂಡಕಾವ್ಯದ ವಾಚನ ವ್ಯಾಖ್ಯಾನ." } },
   { id: "ePnBubgnutg", 
-    en: { title: "Durvasatithya 1", caption: "An episode from the Aranya Parva of  Kumaravyasa Bharata." },
+    en: { title: "Durvasatithya 1", caption: "An episode from the Aranya Parva of Kumaravyasa Bharata." },
     kn: { title: "ಗಮಕ ಧಾಟಿಗಳ ಪರಿಚಯ", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದ ಅರಣ್ಯಪರ್ವದಿಂದ ಒಂದು ಪ್ರಸಂಗ." } },
   { id: "sDulbgM9zFE", 
     en: { title: "Durvasatithya 2 ", caption: "An episode from Kumaravyasa Bharata." },
     kn: { title: "ದೂರ್ವಾಸಾತಿಥ್ಯ 2", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದ ಅರಣ್ಯಪರ್ವದಿಂದ ಒಂದು ಪ್ರಸಂಗದ ವಾಚನ ವ್ಯಾಖ್ಯಾನ." } },
   { id: "wuMXIJ529GE", 
     en: { title: "What is the art of Gamaka? A lecture Demonstration", caption: "The history of the art and current trends." },
-    kn: { title: "ಗಮಕ ಕಲೆ ಎಂದರೇನು? ಒಂದು ಪ್ರಾತ್ಯಕ್ಷಿಕೆ", caption: "ಗಮಕ ಕಲೆಯ ಚರಿತ್ರೆ, ಮತ್ತು ಹೇಗೆ ಕಾವ್ಯದ ಭಾವಪ್ರಕಟಣೆಯಲ್ಲಿ ಅದರ ಪ್ರಭಾವ." } }, 
-  
-  { id: "aEa04Odq45E", 
-    en: { title: "Durvasatithya 3 ", caption: "An episode from Kumaravyasa Bharata." },
-    kn: { title: "ದೂರ್ವಾಸಾತಿಥ್ಯ 3" , caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದ ಅರಣ್ಯಪರ್ವದಿಂದ ಒಂದು ಪ್ರಸಂಗದ ವಾಚನ ವ್ಯಾಖ್ಯಾನ.." } }, 
-
-    { id: "wNrr9XDmI90", 
-    en: { title: "Kumaravyasa Namana  ", caption: "Written by Ramaprasad K V  ." },
-    kn: { title: "ಕುಮಾರವ್ಯಾಸ ನಮನ" , caption: "ರಾಮಪ್ರಸಾದ್ ಕೆ ವಿ ಅವರ ಖಂಡಕಾವ್ಯ. " } }, 
-  
-  { id: "ifwnLcNUksg", 
-    en: { title: "Gograhana ", caption: "An episode from Virata Parva of Kumaravyasa Bharata." },
-    kn: { title: "ಗೋಗ್ರಹಣ", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದ ವಿರಾಟಪರ್ವದಿಂದ ಒಂದು ಪ್ರಸಂಗ." } } 
-  
+    kn: { title: "ಗಮಕ ಕಲೆ ಎಂದರೇನು? ಒಂದು ಪ್ರಾತ್ಯಕ್ಷಿಕೆ", caption: "ಗಮಕ ಕಲೆಯ ಚರಿತ್ರೆ, ಮತ್ತು ಹೇಗೆ ಕಾವ್ಯದ ಭಾವಪ್ರಕಟಣೆಯಲ್ಲಿ ಅದರ ಪ್ರಭಾವ." } }
 ];
 
 let lang = 'en';
@@ -272,9 +276,12 @@ function renderVideos(l) {
     const titleClass = 'video-title' + (l === 'kn' ? ' kn' : '');
     const capClass = 'video-caption' + (l === 'kn' ? ' kn' : '');
     
+    // Maxresdefault safely pulls sharp 1280x720 HD images directly from YouTube
     card.innerHTML = `
-      <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/${v.id}" allowfullscreen></iframe>
+      <div class="video-wrapper" id="wrap-${v.id}">
+        <div class="video-placeholder" style="background-image: url('https://img.youtube.com/vi/${v.id}/maxresdefault.jpg');" onclick="loadLivePlayer('${v.id}')">
+          <div class="play-btn-overlay"></div>
+        </div>
       </div>
       <div class="video-meta">
         <div class="${titleClass}">${v[l].title}</div>
@@ -283,6 +290,11 @@ function renderVideos(l) {
     `;
     grid.appendChild(card);
   });
+}
+
+function loadLivePlayer(id) {
+  const targetWrapper = document.getElementById('wrap-' + id);
+  targetWrapper.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1" allow="autoplay" allowfullscreen></iframe>`;
 }
 
 function applyLang(l) {
