@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gamaka Vachana | ಹಂಸಾನಂದಿ</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+Kannada:wght@400;600&family=Noto+Serif+Kannada:wght@400;600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --gold: #8b5e1a; --gold-light: #6b4510; --gold-dim: #a0783a;
+  --bg: #ffffff; --section-bg: #fdf9f3; --header-bg: #f5ede0;
+  --border: #d4c5a9; --border-light: #c0aa88;
+  --text: #1a1208; --meta: #8a7055;
+  --accent-base: #c2593f; --accent-light: #f9f0ee; --accent-mid: #d46a50;
+}
+
+body {
+  font-family: 'EB Garamond', serif;
+  background: var(--bg); color: var(--text);
+  max-width: 860px; margin: 0 auto;
+  padding: 0 0 60px; font-size: 16px; line-height: 1.6;
+}
+
+/* ── Header ── */
+.page-header {
+  text-align: center; padding: 40px 20px 28px;
+  border-bottom: 1px solid var(--border); position: relative;
+}
+.page-header::after {
+  content: ''; display: block; height: 2px; width: 160px; margin: 0 auto;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  position: absolute; bottom: -1px; left: 50%; transform: translateX(-50%);
+}
+.site-name {
+  font-family: 'Cinzel', serif; font-size: 2rem;
+  letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase;
+}
+.site-name.kn {
+  font-family: 'Noto Serif Kannada', serif; letter-spacing: 0.06em;
+  text-transform: none; font-size: 1.9rem;
+}
+.site-tagline { font-size: 0.95em; color: var(--gold-dim); margin-top: 8px; font-style: italic; }
+.site-tagline.kn { font-family: 'Noto Sans Kannada', sans-serif; font-style: normal; }
+
+/* ── Lang toggle ── */
+.lang-toggle {
+  position: absolute; top: 24px; right: 24px;
+  background: var(--header-bg); border: 1px solid var(--border-light);
+  border-radius: 20px; padding: 5px 4px; display: flex; gap: 3px;
+}
+.lang-btn {
+  font-size: 0.75rem; padding: 4px 10px; border-radius: 16px;
+  border: none; background: none; cursor: pointer; color: var(--meta);
+  font-family: 'EB Garamond', serif; transition: all 0.18s;
+}
+.lang-btn.active { background: var(--gold); color: #fff; font-weight: 600; }
+.lang-btn.kn-btn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.78rem; }
+
+/* ── Info Rows ── */
+.info-container {
+  display: grid; grid-template-columns: 1.4fr 0.8fr;
+  gap: 20px; padding: 32px 20px 10px;
+}
+
+.desc-block {
+  background: var(--section-bg); border: 1px solid var(--border);
+  border-radius: 10px; padding: 24px; border-top: 4px solid var(--accent-base);
+}
+.desc-block p { margin-bottom: 14px; font-size: 1.05rem; text-align: justify; }
+.desc-block p:last-child { margin-bottom: 0; }
+.desc-block p.kn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.88rem; text-align: left; }
+
+.link-block {
+  display: flex; flex-direction: column; justify-content: space-between;
+  background: var(--section-bg); border: 1px solid var(--border);
+  border-radius: 10px; padding: 24px; border-top: 4px solid var(--gold);
+  text-decoration: none; color: inherit; transition: all 0.18s;
+}
+.link-block:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); border-color: var(--gold-dim); }
+.link-block .card-icon-wrap { background: var(--header-bg); color: var(--gold); }
+
+.card-icon-wrap {
+  width: 42px; height: 42px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; margin-bottom: 14px;
+}
+.card-title {
+  font-family: 'Cinzel', serif; font-size: 0.85rem;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  font-weight: 600; margin-bottom: 8px; color: var(--gold-light);
+}
+.card-title.kn {
+  font-family: 'Noto Serif Kannada', serif; letter-spacing: 0.04em;
+  text-transform: none; font-size: 0.95rem;
+}
+.card-desc { font-size: 0.88em; color: var(--meta); line-height: 1.5; }
+.card-desc.kn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.82rem; }
+
+/* ── Section heading ── */
+.section-heading {
+  font-family: 'Cinzel', serif; font-size: 0.65rem;
+  letter-spacing: 0.35em; text-transform: uppercase;
+  color: var(--meta); text-align: center; margin: 40px 0 20px;
+}
+.section-heading.kn {
+  font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.85rem;
+  letter-spacing: 0.05em; text-transform: none;
+}
+
+/* ── Video Grid Layout ── */
+.video-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 20px; padding: 0 20px;
+}
+.video-card {
+  background: var(--section-bg); border: 1px solid var(--border);
+  border-radius: 10px; overflow: hidden; padding: 12px;
+}
+.video-wrapper {
+  position: relative; padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0; overflow: hidden; border-radius: 6px; background: #000;
+}
+.video-wrapper iframe {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
+}
+.video-meta { margin-top: 10px; padding: 2px 4px; }
+.video-title { font-family: 'Cinzel', serif; font-size: 0.82rem; font-weight: 600; color: var(--text); }
+.video-title.kn { font-family: 'Noto Serif Kannada', serif; text-transform: none; font-size: 0.9rem; letter-spacing: 0.02em; }
+.video-caption { font-size: 0.82em; color: var(--meta); margin-top: 3px; }
+.video-caption.kn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.76rem; }
+
+/* ── Navigation Footer ── */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  margin: 48px 20px 0;
+}
+.nav-footer { text-align: center; margin-top: 24px; font-size: 0.95em; }
+.nav-footer.kn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.88rem; }
+a.back-link { color: var(--gold); text-decoration: none; font-weight: 500; }
+a.back-link:hover { text-decoration: underline; }
+
+@media (max-width: 768px) {
+  .info-container { grid-template-columns: 1fr; }
+  .video-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="lang-toggle" id="langToggle">
+    <button class="lang-btn active" id="btnEN">EN</button>
+    <button class="lang-btn kn-btn" id="btnKN">ಕನ್ನಡ</button>
+  </div>
+  <div class="site-name" id="siteName">Gamaka Vachana</div>
+  <div class="site-tagline en" id="siteTagline">The classical art of poetic recitation and exposition</div>
+</div>
+
+<div class="info-container">
+  
+  <div class="desc-block" id="descContent">
+    <p>Gamaka, widely known as Kaavyavaachana, is a hallmark classical art form native to the heritage of Karnataka. It represents an exceptional synthesis of classical Kannada poetry (Kavya) and musical exposition. In a traditional recital, a piece of written composition is brought to life through a meticulous melodic delivery unconstrained by fixed rhythmic beats (tala), optimizing the ragas or custom melody patterns (dhaati) to heighten the emotional core (rasa) and philosophical value of the text.</p>
+    <p>The practice traditionally highlights a fluid division of labor between two exponents: the <i>Gamaki</i>, who beautifully sings and projects the verses, and the <i>Vyakhyanakara</i>, who steps in immediately to offer text interpretations, comparative contextual analogies, and literary commentary. Drawing heavily from ancient epic classics like Kumaravyasa's <i>Karnata Bharata Kathamanjari</i>, Lakshmeesha's <i>Jaimini Bharata</i>, and Torave Ramayana, Gamaka remains a live repository of oral transmission and classical storytelling.</p>
+  </div>
+
+  <a href="https://gamakakala.org/" target="_blank" class="link-block">
+    <div>
+      <div class="card-icon-wrap">🌐</div>
+      <div class="card-title" id="linkTitle">Gamaka Kala Vedike</div>
+      <div class="card-desc" id="linkDesc">Explore the official portal of the North America Gamaka Kala Vedike dedicated to preserving and supporting classical recitation arrays.</div>
+    </div>
+    <span style="font-size: 1.1rem; color: var(--gold-dim); text-align: right; margin-top: 10px;">→</span>
+  </a>
+
+</div>
+
+<div class="section-heading" id="sectionHeading">Performances & Lectures</div>
+
+<div class="video-grid" id="videoGrid"></div>
+
+<hr class="section-divider">
+
+<div class="nav-footer" id="navFooter">
+  <a href="https://hamsanandi.github.io/" class="back-link" id="backLink">← Return to Home</a>
+</div>
+
+<script>
+const STR = {
+  en: {
+    siteName: "Gamaka Vachana",
+    tagline: "The classical art of poetic recitation and exposition",
+    sectionHeading: "Performances & Lectures",
+    linkTitle: "Gamaka Kala Vedike",
+    linkDesc: "Explore the official portal of the North America Gamaka Kala Vedike dedicated to preserving and supporting classical recitation arrays.",
+    backLink: "← Return to Home",
+    descHtml: `
+      <p>Gamaka, widely known as Kaavyavaachana, is a hallmark classical art form native to the heritage of Karnataka. It represents an exceptional synthesis of classical Kannada poetry (Kavya) and musical exposition. In a traditional recital, a piece of written composition is brought to life through a meticulous melodic delivery unconstrained by fixed rhythmic beats (tala), optimizing the ragas or custom melody patterns (dhaati) to heighten the emotional core (rasa) and philosophical value of the text.</p>
+      <p>The practice traditionally highlights a fluid division of labor between two exponents: the <i>Gamaki</i>, who beautifully sings and projects the verses, and the <i>Vyakhyanakara</i>, who steps in immediately to offer text interpretations, comparative contextual analogies, and literary commentary. Drawing heavily from ancient epic classics like Kumaravyasa's <i>Karnata Bharata Kathamanjari</i>, Lakshmeesha's <i>Jaimini Bharata</i>, and Torave Ramayana, Gamaka remains a live repository of oral transmission and classical storytelling.</p>
+    `
+  },
+  kn: {
+    siteName: "ಗಮಕ ವಾಚನ",
+    tagline: "ಕಾವ್ಯ ವಾಚನ ಮತ್ತು ವ್ಯಾಖ್ಯಾನಗಳ ಶಾಸ್ತ್ರೀಯ ಕಲೆ",
+    sectionHeading: "ಪ್ರದರ್ಶನಗಳು ಮತ್ತು ಉಪನ್ಯಾಸಗಳು",
+    linkTitle: "ಗಮಕ ಕಲಾ ವೇದಿಕೆ",
+    linkDesc: "ಉತ್ತರ ಅಮೆರಿಕಾದಲ್ಲಿ ಶಾಸ್ತ್ರೀಯ ಕಾವ್ಯ ವಾಚನ ಪ್ರಕಾರವನ್ನು ಪ್ರೋತ್ಸಾಹಿಸುವ ಗಮಕ ಕಲಾ ವೇದಿಕೆಯ ಅಧಿಕೃತ ಜಾಲತಾಣವನ್ನು ವೀಕ್ಷಿಸಿ.",
+    backLink: "← ಮುಖ್ಯ ಪುಟಕ್ಕೆ ಹಿಂತಿರುಗಿ",
+    descHtml: `
+      <p class="kn">ಗಮಕ ಅಥವಾ ಕಾವ್ಯವಾಚನವು ಕರ್ನಾಟಕದ ವಿಶಿಷ್ಟ ಹಾಗೂ ಹೆಮ್ಮೆಯ ಶಾಸ್ತ್ರೀಯ ಕಲಾಪ್ರಕಾರವಾಗಿದೆ. ಇದು ಪ್ರೌಢ ಕನ್ನಡ ಕಾವ್ಯ ಸಾಹಿತ್ಯ ಮತ್ತು ಸಂಗೀತದ ಅತ್ಯದ್ಭುತ ಸಮ್ಮಿಲನವಾಗಿದೆ. ಸಾಂಪ್ರದಾಯಿಕ ವಾಚನಗಳಲ್ಲಿ ಪ್ರಸಿದ್ಧ ಕಾವ್ಯಭಾಗಗಳನ್ನು ಯಾವುದೇ ನಿರ್ದಿಷ್ಟ ತಾಳದ ಚೌಕಟ್ಟಿಗೆ ಬದ್ಧಗೊಳಿಸದೆ, ಕಾವ್ಯದ ಭಾವಕ್ಕೆ ತಕ್ಕುದಾದ ರಾಗ ಅಥವಾ ಧಾಟಿಗಳನ್ನು ಆಯ್ದುಕೊಂಡು, ರಸೋತ್ಪತ್ತಿಗೆ ಪ್ರಮುಖ ಆದ್ಯತೆ ನೀಡಿ ಹಾಡಲಾಗುತ್ತದೆ.</p>
+      <p class="kn">ಈ ಕಲಾಪ್ರಕಾರದಲ್ಲಿ ಸಾಮಾನ್ಯವಾಗಿ ಇಬ್ಬರು ಕಲಾವಿದರು ಜೊತೆಯಾಗಿ ಭಾಗವಹಿಸುತ್ತಾರೆ: ಒಬ್ಬರು ಕಾವ್ಯದ ಪದ್ಯಗಳನ್ನು ಸುಶ್ರಾವ್ಯವಾಗಿ ವಾಚಿಸುವ 'ಗಮಕಿ', ಮತ್ತು ಮತ್ತೊಬ್ಬರು ಆ ಪದ್ಯಗಳ ಸಾಹಿತ್ಯಿಕ ಚೌಕಟ್ಟು, ಒಳಹೊರಗು ಹಾಗೂ ತಾತ್ಪರ್ಯಗಳನ್ನು ವಿವರಣಾತ್ಮಕವಾಗಿ ಪ್ರಸ್ತುತಪಡಿಸುವ 'ವ್ಯಾಖ್ಯಾನಕಾರರು'. ಕುಮಾರವ್ಯಾಸ ಭಾರತ, ಲಕ್ಷ್ಮೀಶನ ಜೈಮಿನಿ ಭಾರತ, ತೊರವೆ ರಾಮಾಯಣ ಮುಂತಾದ ಅದ್ಭುತ ಕಾವ್ಯ ಪರಂಪರೆಯನ್ನು ಇಂದಿಗೂ ಜೀವಂತವಾಗಿರಿಸುವಲ್ಲಿ ಗಮಕ ಕಲೆ ಪ್ರಮುಖ ಪಾತ್ರ ವಹಿಸಿದೆ.</p>
+    `
+  }
+};
+
+// 8 Interactive Youtube performance slots with flexible bilingual structures
+const VIDEOS = [
+  { id: "C1hW9_oYy_k", 
+    en: { title: "Gamaka Kala Vedike Presentation", caption: "Special recital and introductory discourse features." },
+    kn: { title: "ಗಮಕ ಕಲಾ ವೇದಿಕೆ ಪ್ರಸ್ತುತಿ", caption: "ವಿಶೇಷ ಕಾವ್ಯ ವಾಚನ ಮತ್ತು ಪರಿಚಯಾತ್ಮಕ ಉಪನ್ಯಾಸ ಮಾಲೆ." } },
+  { id: "AIPraIlSmSm", /* Placeholder IDs - Change string token to map your direct YouTube hashes */
+    en: { title: "Kumaravyasa Bharata Recital", caption: "Classic selections exploring classical Gamaka layout formats." },
+    kn: { title: "ಕುಮಾರವ್ಯಾಸ ಭಾರತ ವಾಚನ", caption: "ಸಾಂಪ್ರದಾಯಿಕ ಧಾಟಿಯಲ್ಲಿ ಮೂಡಿಬಂದ ಕೃಷ್ಣ ಸಂಧಾನದ ಆಯ್ದ ಪದ್ಯಗಳು." } },
+  { id: "AIPraIlSmS3", 
+    en: { title: "Jaimini Bharata Discourse", caption: "Melodic rendering combined with comprehensive contextual annotation." },
+    kn: { title: "ಜೈಮಿನಿ ಭಾರತ ಪ್ರವಚನ", caption: "ಲಕ್ಷ್ಮೀಶ ಕವಿಯ ಕಾವ್ಯದ ರಸಭರಿತ ವಾಚನ ಮತ್ತು ಗಂಭೀರ ವ್ಯಾಖ್ಯಾನ." } },
+  { id: "AIPraIlSmS4", 
+    en: { title: "Harishchandra Kavya Segment", caption: "Exposition of Raghavanka's structural masterwork." },
+    kn: { title: "ಹರಿಶ್ಚಂದ್ರ ಕಾವ್ಯ ವಾಚನ", caption: "ರಾಘವಾಂಕನ ಮಹಾಕೃತಿಯ ಮಾರ್ಮಿಕ ವಾಚನ ಪ್ರಸ್ತುತಿ." } },
+  { id: "AIPraIlSmS5", 
+    en: { title: "Torave Ramayana Recital", caption: "Epic sequences rendered in traditional multi-raga structure." },
+    kn: { title: "ತೊರವೆ ರಾಮಾಯಣ ಗಮಕ", caption: "ತೊರವೆ ನರಹರಿಯ ಭಕ್ತಿಪ್ರಧಾನ ಕಾವ್ಯದ ಸುಶ್ರಾವ್ಯ ಪ್ರಸ್ತುತಿ." } },
+  { id: "AIPraIlSmS6", 
+    en: { title: "Introduction to Classical Dhaatis", caption: "An instructional lecture exploring melodic profiles inside Gamaka." },
+    kn: { title: "ಗಮಕ ಧಾಟಿಗಳ ಪರಿಚಯ", caption: "ಕಾವ್ಯ ವಾಚನದಲ್ಲಿ ಬಳಸಲಾಗುವ ವಿವಿಧ ರಾಗ ಹಾಗೂ ಸಾಂಪ್ರದಾಯಿಕ ಧಾಟಿಗಳ ವಿಶ್ಲೇಷಣೆ." } },
+  { id: "AIPraIlSmS7", 
+    en: { title: "Pampa Bharata Recital Selection", caption: "Excerpts from old Kannada classical adhyayas." },
+    kn: { title: "ಪಂಪ ಭಾರತ ವಾಚನ ವೈಭವ", caption: "ಹಳೆಗನ್ನಡ ಕಾವ್ಯಶೈಲಿಯ ಪ್ರೌಢ ಪದ್ಯಗಳ ಕಲಾತ್ಮಕ ವಾಚನ ವೈಖರಿ." } },
+  { id: "AIPraIlSmS8", 
+    en: { title: "Gamaka Recitation Demonstration", caption: "Vocal control, pitch shifting, and microtonal ornamentation methods." },
+    kn: { title: "ಗಮಕ ಪ್ರಸ್ತುತಿ ಪ್ರಾತ್ಯಕ್ಷಿಕೆ", caption: "ಕಾವ್ಯದ ಭಾವ ಪ್ರಕಟಣೆಯಲ್ಲಿ ಸ್ವರ ನಿಯಂತ್ರಣ ಹಾಗೂ ರಾಗ ಸಂಯೋಜನೆಯ ಪ್ರಾತ್ಯಕ್ಷಿಕೆ." } }
+];
+
+let lang = 'en';
+
+function renderVideos(l) {
+  const grid = document.getElementById('videoGrid');
+  grid.innerHTML = '';
+
+  VIDEOS.forEach(v => {
+    const card = document.createElement('div');
+    card.className = 'video-card';
+    
+    const titleClass = 'video-title' + (l === 'kn' ? ' kn' : '');
+    const capClass = 'video-caption' + (l === 'kn' ? ' kn' : '');
+    
+    card.innerHTML = `
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/${v.id}" allowfullscreen></iframe>
+      </div>
+      <div class="video-meta">
+        <div class="${titleClass}">${v[l].title}</div>
+        <div class="${capClass}">${v[l].caption}</div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function applyLang(l) {
+  const s = STR[l];
+  document.getElementById('siteName').textContent = s.siteName;
+  document.getElementById('siteName').className = 'site-name' + (l === 'kn' ? ' kn' : '');
+  document.getElementById('siteTagline').textContent = s.tagline;
+  document.getElementById('siteTagline').className = 'site-tagline' + (l === 'kn' ? ' kn' : ' en');
+  document.getElementById('descContent').innerHTML = s.descHtml;
+  document.getElementById('sectionHeading').textContent = s.sectionHeading;
+  document.getElementById('sectionHeading').className = 'section-heading' + (l === 'kn' ? ' kn' : '');
+  document.getElementById('linkTitle').textContent = s.linkTitle;
+  document.getElementById('linkTitle').className = 'card-title' + (l === 'kn' ? ' kn' : '');
+  document.getElementById('linkDesc').textContent = s.linkDesc;
+  document.getElementById('linkDesc').className = 'card-desc' + (l === 'kn' ? ' kn' : '');
+  document.getElementById('backLink').textContent = s.backLink;
+  document.getElementById('navFooter').className = 'nav-footer' + (l === 'kn' ? ' kn' : '');
+
+  document.getElementById('btnEN').classList.toggle('active', l === 'en');
+  document.getElementById('btnKN').classList.toggle('active', l === 'kn');
+  
+  renderVideos(l);
+}
+
+document.getElementById('langToggle').addEventListener('click', e => {
+  const btn = e.target.closest('.lang-btn');
+  if (!btn) return;
+  lang = btn.id === 'btnKN' ? 'kn' : 'en';
+  applyLang(lang);
+});
+
+applyLang('en');
+</script>
+</body>
+</html>
