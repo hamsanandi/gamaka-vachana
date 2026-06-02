@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="htmlRoot">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gamaka Vachana | ಹಂಸಾನಂದಿ</title>
+<title>Gamaka Vachana — Hamsanandi</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+Kannada:wght@400;600&family=Noto+Serif+Kannada:wght@400;600&display=swap" rel="stylesheet">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -23,9 +23,22 @@ body {
   padding: 0 0 60px; font-size: 16px; line-height: 1.6;
 }
 
-/* ── Header ── */
+/* ── Top nav bar ── */
+.site-nav { background: var(--header-bg); border-bottom: 1px solid var(--border); padding: 0 20px; display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 42px; position: sticky; top: 0; z-index: 100; }
+.nav-home { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.2em; color: var(--gold); text-decoration: none; text-transform: uppercase; white-space: nowrap; flex-shrink: 0; }
+.nav-home.kn { font-family: 'Noto Serif Kannada', serif; letter-spacing: 0.05em; text-transform: none; font-size: 0.88rem; }
+.nav-home:hover { text-decoration: underline; }
+.nav-links { display: flex; align-items: center; gap: 0; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+.nav-links::-webkit-scrollbar { display: none; }
+.nav-link { font-family: 'EB Garamond', serif; font-size: 0.78rem; color: var(--meta); text-decoration: none; padding: 0 10px; line-height: 42px; white-space: nowrap; border-left: 1px solid var(--border); transition: color 0.15s, background 0.15s; }
+.nav-link:first-child { border-left: none; }
+.nav-link:hover { color: var(--gold); background: rgba(139,94,26,0.06); }
+.nav-link.active-section { color: var(--gold); font-weight: 600; }
+.nav-link.kn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.72rem; }
+
+/* ── Page header ── */
 .page-header {
-  text-align: center; padding: 40px 20px 28px;
+  text-align: center; padding: 36px 20px 24px;
   border-bottom: 1px solid var(--border); position: relative;
 }
 .page-header::after {
@@ -33,16 +46,13 @@ body {
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
   position: absolute; bottom: -1px; left: 50%; transform: translateX(-50%);
 }
-.site-name {
-  font-family: 'Cinzel', serif; font-size: 2rem;
-  letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase;
+.page-title {
+  font-family: 'Cinzel', serif; font-size: 1.5rem;
+  letter-spacing: 0.22em; color: var(--gold); text-transform: uppercase;
 }
-.site-name.kn {
-  font-family: 'Noto Serif Kannada', serif; letter-spacing: 0.06em;
-  text-transform: none; font-size: 1.9rem;
-}
-.site-tagline { font-size: 0.95em; color: var(--gold-dim); margin-top: 8px; font-style: italic; }
-.site-tagline.kn { font-family: 'Noto Sans Kannada', sans-serif; font-style: normal; }
+.page-title.kn { font-family: 'Noto Serif Kannada', serif; letter-spacing: 0.05em; text-transform: none; }
+.page-subtitle { font-size: 0.95em; color: var(--gold-dim); margin-top: 6px; font-style: italic; }
+.page-subtitle.kn { font-family: 'Noto Sans Kannada', sans-serif; font-style: normal; }
 
 /* ── Lang toggle ── */
 .lang-toggle {
@@ -50,20 +60,15 @@ body {
   background: var(--header-bg); border: 1px solid var(--border-light);
   border-radius: 20px; padding: 5px 4px; display: flex; gap: 3px;
 }
-.lang-btn {
-  font-size: 0.75rem; padding: 4px 10px; border-radius: 16px;
-  border: none; background: none; cursor: pointer; color: var(--meta);
-  font-family: 'EB Garamond', serif; transition: all 0.18s;
-}
+.lang-btn { font-size: 0.75rem; padding: 4px 10px; border-radius: 16px; border: none; background: none; cursor: pointer; color: var(--meta); font-family: 'EB Garamond', serif; transition: all 0.18s; }
 .lang-btn.active { background: var(--gold); color: #fff; font-weight: 600; }
 .lang-btn.kn-btn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.78rem; }
 
-/* ── Info Rows ── */
+/* ── Info layout ── */
 .info-container {
   display: grid; grid-template-columns: 1.4fr 0.8fr;
   gap: 20px; padding: 32px 20px 10px;
 }
-
 .desc-block {
   background: var(--section-bg); border: 1px solid var(--border);
   border-radius: 10px; padding: 24px; border-top: 4px solid var(--accent-base);
@@ -81,296 +86,307 @@ body {
 .link-block:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); border-color: var(--gold-dim); }
 .link-block .card-icon-wrap { background: var(--header-bg); color: var(--gold); }
 
-.card-icon-wrap {
-  width: 42px; height: 42px; border-radius: 10px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.4rem; margin-bottom: 14px;
-}
-.card-title {
-  font-family: 'Cinzel', serif; font-size: 0.85rem;
-  letter-spacing: 0.15em; text-transform: uppercase;
-  font-weight: 600; margin-bottom: 8px; color: var(--gold-light);
-}
-.card-title.kn {
-  font-family: 'Noto Serif Kannada', serif; letter-spacing: 0.04em;
-  text-transform: none; font-size: 0.95rem;
-}
+.card-icon-wrap { width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 14px; }
+.card-title { font-family: 'Cinzel', serif; font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600; margin-bottom: 8px; color: var(--gold-light); }
+.card-title.kn { font-family: 'Noto Serif Kannada', serif; letter-spacing: 0.04em; text-transform: none; font-size: 0.95rem; }
 .card-desc { font-size: 0.88em; color: var(--meta); line-height: 1.5; }
 .card-desc.kn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.82rem; }
 
 /* ── Section heading ── */
-.section-heading {
-  font-family: 'Cinzel', serif; font-size: 0.65rem;
-  letter-spacing: 0.35em; text-transform: uppercase;
-  color: var(--meta); text-align: center; margin: 40px 0 20px;
-}
-.section-heading.kn {
-  font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.85rem;
-  letter-spacing: 0.05em; text-transform: none;
-}
+.section-heading { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--meta); text-align: center; margin: 40px 0 20px; }
+.section-heading.kn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: none; }
 
-/* ── High-Fidelity 3-Column Video Grid ── */
-.video-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 16px; padding: 0 20px;
-}
-.video-card {
-  background: var(--section-bg); border: 1px solid var(--border);
-  border-radius: 10px; overflow: hidden; padding: 10px;
-}
-.video-wrapper {
-  position: relative; padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-  height: 0; overflow: hidden; border-radius: 6px; background: #000;
-}
-.video-wrapper iframe {
-  position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
-}
-
-/* HD Thumbnail Placeholder Overlays */
-.video-placeholder {
-  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-  background-size: cover; background-position: center; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-}
-.play-btn-overlay {
-  width: 48px; height: 34px; background-color: rgba(26, 18, 8, 0.75);
-  border-radius: 8px; position: relative; transition: background-color 0.18s, transform 0.18s;
-}
-.video-placeholder:hover .play-btn-overlay {
-  background-color: var(--gold); transform: scale(1.08);
-}
-.play-btn-overlay::after {
-  content: ''; position: absolute; top: 10px; left: 20px;
-  border-style: solid; border-width: 7px 0 7px 11px;
-  border-color: transparent transparent transparent #ffffff;
-}
-
+/* ── Video grid ── */
+.video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding: 0 20px; }
+.video-card { background: var(--section-bg); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; padding: 10px; }
+.video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 6px; background: #000; }
+.video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+.video-placeholder { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.play-btn-overlay { width: 48px; height: 34px; background-color: rgba(26,18,8,0.75); border-radius: 8px; position: relative; transition: background-color 0.18s, transform 0.18s; }
+.video-placeholder:hover .play-btn-overlay { background-color: var(--gold); transform: scale(1.08); }
+.play-btn-overlay::after { content: ''; position: absolute; top: 10px; left: 20px; border-style: solid; border-width: 7px 0 7px 11px; border-color: transparent transparent transparent #ffffff; }
 .video-meta { margin-top: 10px; padding: 2px 4px; }
 .video-title { font-family: 'Cinzel', serif; font-size: 0.80rem; font-weight: 600; color: var(--text); line-height: 1.4; }
 .video-title.kn { font-family: 'Noto Serif Kannada', serif; text-transform: none; font-size: 0.88rem; letter-spacing: 0.02em; }
 .video-caption { font-size: 0.82em; color: var(--meta); margin-top: 4px; line-height: 1.5; }
 .video-caption.kn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.76rem; }
 
-/* ── Navigation Footer ── */
-.section-divider {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--border), transparent);
-  margin: 48px 20px 0;
-}
-.nav-footer { text-align: center; margin-top: 24px; font-size: 0.95em; }
-.nav-footer.kn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.88rem; }
-a.back-link { color: var(--gold); text-decoration: none; font-weight: 500; }
-a.back-link:hover { text-decoration: underline; }
+/* ── Divider & footer ── */
+.section-divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); margin: 48px 20px 0; }
+a { text-decoration: none; color: var(--gold-light); }
+a:hover { text-decoration: underline; }
+footer { text-align: center; color: var(--meta); margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 0.80em; padding-left: 20px; padding-right: 20px; }
+footer.kn { font-family: 'Noto Sans Kannada', sans-serif; }
 
-/* ── Responsive Viewports ── */
-@media (max-width: 800px) {
-  .video-grid { grid-template-columns: repeat(2, 1fr); }
-}
+/* ── Responsive ── */
+@media (max-width: 800px) { .video-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 580px) {
   .info-container { grid-template-columns: 1fr; }
   .video-grid { grid-template-columns: 1fr; }
+  .site-nav { flex-wrap: wrap; padding: 8px 12px; min-height: unset; }
+  .nav-home { width: 100%; padding-bottom: 6px; line-height: 1.4; }
+  .nav-links { width: 100%; overflow-x: auto; }
+  .nav-link { font-size: 0.72rem; padding: 0 8px; line-height: 32px; }
+  .lang-toggle { position: static; margin: 12px auto 0; }
+  .page-header { padding: 24px 20px 20px; }
 }
 </style>
 </head>
 <body>
+
+<!-- ── Sticky nav bar ── -->
+<nav class="site-nav" id="siteNav" aria-label="Site navigation">
+  <a class="nav-home" id="navHome" href="https://hamsanandi.github.io/">Hamsanandi</a>
+  <div class="nav-links" id="navLinks"></div>
+</nav>
 
 <div class="page-header">
   <div class="lang-toggle" id="langToggle">
     <button class="lang-btn active" id="btnEN">EN</button>
     <button class="lang-btn kn-btn" id="btnKN">ಕನ್ನಡ</button>
   </div>
-  <div class="site-name" id="siteName">Gamaka Vachana</div>
-  <div class="site-tagline en" id="siteTagline">The classical art of poetic recitation and exposition</div>
+  <div class="page-title" id="pageTitle">Gamaka Vachana</div>
+  <div class="page-subtitle" id="pageSubtitle">The classical art of poetic recitation and exposition</div>
 </div>
 
 <div class="info-container">
-  
   <div class="desc-block" id="descContent"></div>
-
   <a href="https://gamakakala.org/" target="_blank" class="link-block">
     <div>
       <div class="card-icon-wrap">🌐</div>
       <div class="card-title" id="linkTitle">Gamaka Kala Vedike</div>
-      <div class="card-desc" id="linkDesc">Explore the official portal of the North America Gamaka Kala Vedike dedicated to preserving and supporting classical recitation arrays.</div>
+      <div class="card-desc" id="linkDesc">Explore the official portal of the North America Gamaka Kala Vedike dedicated to preserving and supporting classical recitation.</div>
     </div>
-    <span style="font-size: 1.1rem; color: var(--gold-dim); text-align: right; margin-top: 10px;">→</span>
+    <span style="font-size:1.1rem;color:var(--gold-dim);text-align:right;margin-top:10px;">→</span>
   </a>
-
 </div>
 
-<div class="section-heading" id="sectionHeading">Performances & Lectures</div>
-
+<div class="section-heading" id="sectionHeading">Performances &amp; Lectures</div>
 <div class="video-grid" id="videoGrid"></div>
 
 <hr class="section-divider">
-
-<div class="nav-footer" id="navFooter">
-  <a href="https://hamsanandi.github.io/" class="back-link" id="backLink">← Return to Home</a>
-</div>
+<footer id="footerEl">Hosted on GitHub Pages</footer>
 
 <script>
+/* ═══════════════════════════════════════════════════════════════
+   BILINGUAL UI STRINGS
+   ═══════════════════════════════════════════════════════════════ */
 const STR = {
   en: {
-    siteName: "Gamaka Vachana",
-    tagline: "The classical art of poetic recitation and exposition",
+    navHome: "Hamsanandi", navHomeClass: "nav-home",
+    pageTitle: "Gamaka Vachana", pageTitleClass: "page-title",
+    pageSubtitle: "The classical art of poetic recitation and exposition",
+    pageSubtitleClass: "page-subtitle",
     sectionHeading: "Performances & Lectures",
     linkTitle: "Gamaka Kala Vedike",
-    linkDesc: "Explore the official portal of the North America Gamaka Kala Vedike dedicated to preserving and supporting classical recitation arrays.",
-    backLink: "← Return to Home",
+    linkDesc: "Explore the official portal of the North America Gamaka Kala Vedike dedicated to preserving and supporting classical recitation.",
+    footer: "Hosted on GitHub Pages", footerClass: "",
     descHtml: `
       <p>Gamaka, widely known as Kaavyavaachana, is a hallmark classical art form native to the heritage of Karnataka. It represents an exceptional synthesis of classical Kannada poetry (Kavya) and musical exposition. In a traditional recital, a piece of written composition is brought to life through a meticulous melodic delivery unconstrained by fixed rhythmic beats (tala), optimizing the ragas or custom melody patterns (dhaati) to heighten the emotional core (rasa) and philosophical value of the text.</p>
       <p>The practice traditionally highlights a fluid division of labor between two exponents: the <i>Gamaki</i>, who beautifully sings and projects the verses, and the <i>Vyakhyanakara</i>, who steps in immediately to offer text interpretations, comparative contextual analogies, and literary commentary. Drawing heavily from ancient epic classics like Kumaravyasa's <i>Karnata Bharata Kathamanjari</i>, Lakshmeesha's <i>Jaimini Bharata</i>, and Torave Ramayana, Gamaka remains a live repository of oral transmission and classical storytelling.</p>
     `
   },
   kn: {
-    siteName: "ಗಮಕ ವಾಚನ",
-    tagline: "ಕಾವ್ಯ ವಾಚನ ಮತ್ತು ವ್ಯಾಖ್ಯಾನಗಳ ಶಾಸ್ತ್ರೀಯ ಕಲೆ",
+    navHome: "ಹಂಸಾನಂದಿ", navHomeClass: "nav-home kn",
+    pageTitle: "ಗಮಕ ವಾಚನ", pageTitleClass: "page-title kn",
+    pageSubtitle: "ಕಾವ್ಯ ವಾಚನ ಮತ್ತು ವ್ಯಾಖ್ಯಾನಗಳ ಶಾಸ್ತ್ರೀಯ ಕಲೆ",
+    pageSubtitleClass: "page-subtitle kn",
     sectionHeading: "ಪ್ರದರ್ಶನಗಳು ಮತ್ತು ಉಪನ್ಯಾಸಗಳು",
     linkTitle: "ಗಮಕ ಕಲಾ ವೇದಿಕೆ",
     linkDesc: "ಉತ್ತರ ಅಮೆರಿಕಾದಲ್ಲಿ ಶಾಸ್ತ್ರೀಯ ಕಾವ್ಯ ವಾಚನ ಪ್ರಕಾರವನ್ನು ಪ್ರೋತ್ಸಾಹಿಸುವ ಗಮಕ ಕಲಾ ವೇದಿಕೆಯ ಅಧಿಕೃತ ಜಾಲತಾಣವನ್ನು ವೀಕ್ಷಿಸಿ.",
-    backLink: "← ಮುಖ್ಯ ಪುಟಕ್ಕೆ ಹಿಂತಿರುಗಿ",
+    footer: "GitHub Pages ನಲ್ಲಿ ಪ್ರಕಾಶಿತ", footerClass: "kn",
     descHtml: `
-      <p class="kn">ಗಮಕವಾಚನ ಅಥವಾ ಕಾವ್ಯವಾಚನವು ಕರ್ನಾಟಕದ ವಿಶಿಷ್ಟ ಹಾಗೂ ಹೆಮ್ಮೆಯ ಶಾಸ್ತ್ರೀಯ ಕಲಾಪ್ರಕಾರವಾಗಿದೆ. ಹಿಂದೆ ದೇಶದ ಎಲ್ಲೆಡೆಯಯಲ್ಲೂ ಪ್ರಸಿದ್ಧವಾಗಿದ್ದ ಈ ಕಲೆ ಈಗ ಕನ್ನಡದಲ್ಲಿ ಹೆಚ್ಚು ಪ್ರಚಲಿತವಾಗಿದೆ.  ಇದು ಪ್ರೌಢ ಕನ್ನಡ ಕಾವ್ಯ ಸಾಹಿತ್ಯ ಮತ್ತು ಸಂಗೀತದ ಅತ್ಯದ್ಭುತ ಸಮ್ಮಿಲನವಾಗಿದೆ. ಗಮಕವಾಚನಗಳಲ್ಲಿ ಪ್ರಸಿದ್ಧ ಕಾವ್ಯಭಾಗಗಳನ್ನು ಯಾವುದೇ ನಿರ್ದಿಷ್ಟ ತಾಳದ ಚೌಕಟ್ಟಿಗೆ ಅಳವಡಿಸದೇ, ಕಾವ್ಯದ ಭಾವಕ್ಕೆ ತಕ್ಕುದಾದ ರಾಗ ಅಥವಾ ಧಾಟಿಗಳನ್ನು ಆಯ್ದುಕೊಂಡು, ರಸೋತ್ಪತ್ತಿಗೆ ಪ್ರಮುಖ ಆದ್ಯತೆ ನೀಡಿ ಹಾಡಲಾಗುತ್ತದೆ.</p>
-      <p class="kn">ಈ ಕಲಾಪ್ರಕಾರದಲ್ಲಿ ಸಾಮಾನ್ಯವಾಗಿ ಇಬ್ಬರು ಕಲಾವಿದರು ಜೊತೆಯಾಗಿ ಭಾಗವಹಿಸುತ್ತಾರೆ: ಒಬ್ಬರು ಕಾವ್ಯದ ಪದ್ಯಗಳನ್ನು ಸುಶ್ರಾವ್ಯವಾಗಿ ವಾಚಿಸುವ 'ಗಮಕಿ', ಮತ್ತು ಮತ್ತೊಬ್ಬರು ಆ ಪದ್ಯಗಳ ಸಾಹಿತ್ಯಿಕ ಚೌಕಟ್ಟು, ಒಳಹೊರಗು ಹಾಗೂ ತಾತ್ಪರ್ಯಗಳನ್ನು ವಿವರಣಾತ್ಮಕವಾಗಿ ಪ್ರಸ್ತುತಪಡಿಸುವ 'ವ್ಯಾಖ್ಯಾನಕಾರರು'. ಕುಮಾರವ್ಯಾಸ ಭಾರತ, ಲಕ್ಷ್ಮೀಶನ ಜೈಮಿನಿ ಭಾರತ, ತೊರವೆ ರಾಮಾಯಣ ಮುಂತಾದ ಅದ್ಭುತ ಕಾವ್ಯ ಪರಂಪರೆಯನ್ನು ಇಂದಿಗೂ ಜೀವಂತವಾಗಿರಿಸುವಲ್ಲಿ ಗಮಕ ಕಲೆ ಪ್ರಮುಖ ಪಾತ್ರ ವಹಿಸಿದೆ. ಹಲವು ಕವಿಗಳ ರಚನೆಗಳು ಜನಪ್ರಿಯವಾಗುವುದರಲ್ಲಿ ಗಮಕಿಗಳ ಪಾತ್ರ ದೊಡ್ಡದು. </p>
+      <p class="kn">ಗಮಕವಾಚನ ಅಥವಾ ಕಾವ್ಯವಾಚನವು ಕರ್ನಾಟಕದ ವಿಶಿಷ್ಟ ಹಾಗೂ ಹೆಮ್ಮೆಯ ಶಾಸ್ತ್ರೀಯ ಕಲಾಪ್ರಕಾರವಾಗಿದೆ. ಹಿಂದೆ ದೇಶದ ಎಲ್ಲೆಡೆಯಲ್ಲೂ ಪ್ರಸಿದ್ಧವಾಗಿದ್ದ ಈ ಕಲೆ ಈಗ ಕನ್ನಡದಲ್ಲಿ ಹೆಚ್ಚು ಪ್ರಚಲಿತವಾಗಿದೆ. ಇದು ಪ್ರೌಢ ಕನ್ನಡ ಕಾವ್ಯ ಸಾಹಿತ್ಯ ಮತ್ತು ಸಂಗೀತದ ಅತ್ಯದ್ಭುತ ಸಮ್ಮಿಲನವಾಗಿದೆ. ಗಮಕವಾಚನಗಳಲ್ಲಿ ಪ್ರಸಿದ್ಧ ಕಾವ್ಯಭಾಗಗಳನ್ನು ಯಾವುದೇ ನಿರ್ದಿಷ್ಟ ತಾಳದ ಚೌಕಟ್ಟಿಗೆ ಅಳವಡಿಸದೇ, ಕಾವ್ಯದ ಭಾವಕ್ಕೆ ತಕ್ಕುದಾದ ರಾಗ ಅಥವಾ ಧಾಟಿಗಳನ್ನು ಆಯ್ದುಕೊಂಡು, ರಸೋತ್ಪತ್ತಿಗೆ ಪ್ರಮುಖ ಆದ್ಯತೆ ನೀಡಿ ಹಾಡಲಾಗುತ್ತದೆ.</p>
+      <p class="kn">ಈ ಕಲಾಪ್ರಕಾರದಲ್ಲಿ ಸಾಮಾನ್ಯವಾಗಿ ಇಬ್ಬರು ಕಲಾವಿದರು ಜೊತೆಯಾಗಿ ಭಾಗವಹಿಸುತ್ತಾರೆ: ಒಬ್ಬರು ಕಾವ್ಯದ ಪದ್ಯಗಳನ್ನು ಸುಶ್ರಾವ್ಯವಾಗಿ ವಾಚಿಸುವ 'ಗಮಕಿ', ಮತ್ತು ಮತ್ತೊಬ್ಬರು ಆ ಪದ್ಯಗಳ ಸಾಹಿತ್ಯಿಕ ಚೌಕಟ್ಟು, ಒಳಹೊರಗು ಹಾಗೂ ತಾತ್ಪರ್ಯಗಳನ್ನು ವಿವರಣಾತ್ಮಕವಾಗಿ ಪ್ರಸ್ತುತಪಡಿಸುವ 'ವ್ಯಾಖ್ಯಾನಕಾರರು'. ಕುಮಾರವ್ಯಾಸ ಭಾರತ, ಲಕ್ಷ್ಮೀಶನ ಜೈಮಿನಿ ಭಾರತ, ತೊರವೆ ರಾಮಾಯಣ ಮುಂತಾದ ಅದ್ಭುತ ಕಾವ್ಯ ಪರಂಪರೆಯನ್ನು ಇಂದಿಗೂ ಜೀವಂತವಾಗಿರಿಸುವಲ್ಲಿ ಗಮಕ ಕಲೆ ಪ್ರಮುಖ ಪಾತ್ರ ವಹಿಸಿದೆ. ಹಲವು ಕವಿಗಳ ರಚನೆಗಳು ಜನಪ್ರಿಯವಾಗುವುದರಲ್ಲಿ ಗಮಕಿಗಳ ಪಾತ್ರ ದೊಡ್ಡದು.</p>
     `
   }
 };
 
+/* ═══════════════════════════════════════════════════════════════
+   VIDEO DATA
+   ─────────────────────────────────────────────────────────────
+   To add a new video, copy the block below and fill in the fields.
+   The "id" is the YouTube video ID (the part after ?v= in the URL).
+
+   { id: "YouTubeID",
+     en: { title: "English title", caption: "Short description." },
+     kn: { title: "ಕನ್ನಡ ಶೀರ್ಷಿಕೆ", caption: "ಸಂಕ್ಷಿಪ್ತ ವಿವರಣೆ." } },
+   ═══════════════════════════════════════════════════════════════ */
 const VIDEOS = [
-  { id: "C1hW9_oYy_k", 
+
+  { id: "C1hW9_oYy_k",
     en: { title: "Gamaka Kala Vedike Presentation", caption: "Special recital and introductory discourse features." },
     kn: { title: "ಗಮಕ ಕಲಾ ವೇದಿಕೆ ಪ್ರಸ್ತುತಿ", caption: "ವಿಶೇಷ ಕಾವ್ಯ ವಾಚನ ಮತ್ತು ಪರಿಚಯಾತ್ಮಕ ಉಪನ್ಯಾಸ ಮಾಲೆ." } },
-  { id: "JpHeMVKU_mM", 
-    en: { title: "SeetaSvayamvara", caption: "An episode from Ramavatara kavya of Prof Narahari." },
+
+  { id: "JpHeMVKU_mM",
+    en: { title: "Seeta Svayamvara", caption: "An episode from Ramavatara kavya of Prof Narahari." },
     kn: { title: "ಸೀತಾಸ್ವಯಂವರ", caption: "ಪ್ರೊ.ನರಹರಿ ಅವರ ರಾಮಾವತಾರ ಕಾವ್ಯದಿಂದ ಒಂದು ಪ್ರಸಂಗ." } },
-  { id: "wby1gatygE8", 
-    en: { title: "Keechaka Vadhe ", caption: "An episode from Kumaravyasa Bharata." },
+
+  { id: "wby1gatygE8",
+    en: { title: "Keechaka Vadhe", caption: "An episode from Kumaravyasa Bharata." },
     kn: { title: "ಕೀಚಕವಧೆ", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದಿಂದ ಒಂದು ಪ್ರಸಂಗದ ವಾಚನ ವ್ಯಾಖ್ಯಾನ." } },
-  { id: "qrao1iMbrts", 
+
+  { id: "qrao1iMbrts",
     en: { title: "Gadayuddha", caption: "An episode from Kumaravyasa Bharata." },
     kn: { title: "ಗದಾಯುದ್ಧ", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದಿಂದ ಒಂದು ಪ್ರಸಂಗದ ವಾಚನ ವ್ಯಾಖ್ಯಾನ." } },
-  { id: "tOUg3vVQ8lA", 
+
+  { id: "tOUg3vVQ8lA",
     en: { title: "Seetaramakalyana", caption: "A short kavya written by Ramaprasad K V." },
     kn: { title: "ಸೀತಾರಾಮಕಲ್ಯಾಣ", caption: "ರಾಮಪ್ರಸಾದ್ ಅವರ ಖಂಡಕಾವ್ಯದ ವಾಚನ ವ್ಯಾಖ್ಯಾನ." } },
-  { id: "ePnBubgnutg", 
+
+  { id: "ePnBubgnutg",
     en: { title: "Durvasatithya 1", caption: "An episode from the Aranya Parva of Kumaravyasa Bharata." },
     kn: { title: "ದೂರ್ವಾಸಾತಿಥ್ಯ 1", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದ ಅರಣ್ಯಪರ್ವದಿಂದ ಒಂದು ಪ್ರಸಂಗ." } },
-  { id: "sDulbgM9zFE", 
-    en: { title: "Durvasatithya 2 ", caption: "An episode from Kumaravyasa Bharata." },
+
+  { id: "sDulbgM9zFE",
+    en: { title: "Durvasatithya 2", caption: "An episode from Kumaravyasa Bharata." },
     kn: { title: "ದೂರ್ವಾಸಾತಿಥ್ಯ 2", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದ ಅರಣ್ಯಪರ್ವದಿಂದ ಒಂದು ಪ್ರಸಂಗದ ವಾಚನ ವ್ಯಾಖ್ಯಾನ." } },
-  { id: "wuMXIJ529GE", 
-    en: { title: "What is the art of Gamaka? A lecture Demonstration", caption: "The history of the art and current trends." },
-    kn: { title: "ಗಮಕ ಕಲೆ ಎಂದರೇನು? ಒಂದು ಪ್ರಾತ್ಯಕ್ಷಿಕೆ", caption: "ಗಮಕ ಕಲೆಯ ಚರಿತ್ರೆ, ಮತ್ತು ಹೇಗೆ ಕಾವ್ಯದ ಭಾವಪ್ರಕಟಣೆಯಲ್ಲಿ ಅದರ ಪ್ರಭಾವ." } } , 
-  
-  { id: "aEa04Odq45E", 
-    en: { title: "Durvasatithya 3 ", caption: "An episode from Kumaravyasa Bharata." },
-    kn: { title: "ದೂರ್ವಾಸಾತಿಥ್ಯ 3" , caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದ ಅರಣ್ಯಪರ್ವದಿಂದ ಒಂದು ಪ್ರಸಂಗದ ವಾಚನ ವ್ಯಾಖ್ಯಾನ." } }, 
 
-    { id: "wNrr9XDmI90", 
-    en: { title: "Kumaravyasa Namana  ", caption: "Written by Ramaprasad K V  ." },
-    kn: { title: "ಕುಮಾರವ್ಯಾಸ ನಮನ" , caption: "ರಾಮಪ್ರಸಾದ್ ಕೆ ವಿ ಅವರ ಖಂಡಕಾವ್ಯ. " } }, 
-  
-  { id: "ifwnLcNUksg", 
-    en: { title: "Gograhana ", caption: "An episode from Virata Parva of Kumaravyasa Bharata." },
-    kn: { title: "ಗೋಗ್ರಹಣ", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದ ವಿರಾಟಪರ್ವದಿಂದ ಒಂದು ಪ್ರಸಂಗ." } }, 
+  { id: "wuMXIJ529GE",
+    en: { title: "What is the art of Gamaka? A lecture demonstration", caption: "The history of the art and current trends." },
+    kn: { title: "ಗಮಕ ಕಲೆ ಎಂದರೇನು? ಒಂದು ಪ್ರಾತ್ಯಕ್ಷಿಕೆ", caption: "ಗಮಕ ಕಲೆಯ ಚರಿತ್ರೆ, ಮತ್ತು ಹೇಗೆ ಕಾವ್ಯದ ಭಾವಪ್ರಕಟಣೆಯಲ್ಲಿ ಅದರ ಪ್ರಭಾವ." } },
 
-    { id: "BSf3QL_Ru9g", 
-    en: { title: "Durvasatithya 4 ", caption: "An episode from Aranya Parva of Kumaravyasa Bharata." },
-    kn: { title: "ದೂರ್ವಾಸಾತಿಥ್ಯ 4  ", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದ ಅರಣ್ಯಪರ್ವದಿಂದ ಒಂದು ಪ್ರಸಂಗದ ವಾಚನ ವ್ಯಾಖ್ಯಾನ." } }, 
+  { id: "aEa04Odq45E",
+    en: { title: "Durvasatithya 3", caption: "An episode from Kumaravyasa Bharata." },
+    kn: { title: "ದೂರ್ವಾಸಾತಿಥ್ಯ 3", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದ ಅರಣ್ಯಪರ್ವದಿಂದ ಒಂದು ಪ್ರಸಂಗದ ವಾಚನ ವ್ಯಾಖ್ಯಾನ." } },
 
-      { id: "Pg8j2S-DYr0", 
-    en: { title: "BhaktaKutumbi  ", caption: "An episode from Udyoga Parva of Kumaravyasa Bharata." },
-    kn: { title: "ಭಕ್ತಕುಟುಂಬಿ ಸಾರಥಿಯಾದನು", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದ ಉದ್ಯೋಗಪರ್ವದಿಂದ ಒಂದು ಪ್ರಸಂಗದ ವಾಚನ ವ್ಯಾಖ್ಯಾನ." } }, 
+  { id: "wNrr9XDmI90",
+    en: { title: "Kumaravyasa Namana", caption: "Written by Ramaprasad K V." },
+    kn: { title: "ಕುಮಾರವ್ಯಾಸ ನಮನ", caption: "ರಾಮಪ್ರಸಾದ್ ಕೆ ವಿ ಅವರ ಖಂಡಕಾವ್ಯ." } },
 
-        { id: "6E-Rkt7PpJM", 
-    en: { title: "Pashupatastra Pradana   ", caption: "An episode from Aranya Parva of Kumaravyasa Bharata." },
-    kn: { title: "ಪಾಶುಪತಾಸ್ತ್ರ ಪ್ರದಾನ ", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದ ಅರಣ್ಯಪರ್ವದಿಂದ ಒಂದು ಪ್ರಸಂಗದ ವಾಚನ ವ್ಯಾಖ್ಯಾನ." } }, 
+  { id: "ifwnLcNUksg",
+    en: { title: "Gograhana", caption: "An episode from Virata Parva of Kumaravyasa Bharata." },
+    kn: { title: "ಗೋಗ್ರಹಣ", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದ ವಿರಾಟಪರ್ವದಿಂದ ಒಂದು ಪ್ರಸಂಗ." } },
 
-         { id: "auz_X0NtMUk", 
+  { id: "BSf3QL_Ru9g",
+    en: { title: "Durvasatithya 4", caption: "An episode from Aranya Parva of Kumaravyasa Bharata." },
+    kn: { title: "ದೂರ್ವಾಸಾತಿಥ್ಯ 4", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದ ಅರಣ್ಯಪರ್ವದಿಂದ ಒಂದು ಪ್ರಸಂಗದ ವಾಚನ ವ್ಯಾಖ್ಯಾನ." } },
+
+  { id: "Pg8j2S-DYr0",
+    en: { title: "BhaktaKutumbi", caption: "An episode from Udyoga Parva of Kumaravyasa Bharata." },
+    kn: { title: "ಭಕ್ತಕುಟುಂಬಿ ಸಾರಥಿಯಾದನು", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದ ಉದ್ಯೋಗಪರ್ವದಿಂದ ಒಂದು ಪ್ರಸಂಗದ ವಾಚನ ವ್ಯಾಖ್ಯಾನ." } },
+
+  { id: "6E-Rkt7PpJM",
+    en: { title: "Pashupatastra Pradana", caption: "An episode from Aranya Parva of Kumaravyasa Bharata." },
+    kn: { title: "ಪಾಶುಪತಾಸ್ತ್ರ ಪ್ರದಾನ", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದ ಅರಣ್ಯಪರ್ವದಿಂದ ಒಂದು ಪ್ರಸಂಗದ ವಾಚನ ವ್ಯಾಖ್ಯಾನ." } },
+
+  { id: "auz_X0NtMUk",
     en: { title: "Draupadi", caption: "As seen in Kumaravyasa Bharata." },
-    kn: { title: "ದ್ರೌಪದಿ", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದಲ್ಲಿ ಕಾಣುವಂತೆ." } },  
+    kn: { title: "ದ್ರೌಪದಿ", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದಲ್ಲಿ ಕಾಣುವಂತೆ." } },
 
-           { id: "fV-4UbOLzUw", 
+  { id: "fV-4UbOLzUw",
     en: { title: "Srikrishna Sarathya", caption: "From Udyoga Parva of Kumaravyasa Bharata." },
-    kn: { title: "ಶ್ರೀಕೃಷ್ಣ ಸಾರಥ್ಯ", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದ ಉದ್ಯೋಗಪರ್ವದಿಂದ." } },  
+    kn: { title: "ಶ್ರೀಕೃಷ್ಣ ಸಾರಥ್ಯ", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದ ಉದ್ಯೋಗಪರ್ವದಿಂದ." } },
 
-             { id:  "qxoAw5a1bIc ", 
-    en: { title: "Seeta Swayamvara ", caption: "Written by Ramaprasad k v" },
-    kn: { title: "ಸೀತಾ ಸ್ವಯಂವರ", caption: "ರಾಮಪ್ರಸಾದ್ ಅವರ ಕಿರುಗಬ್ಬ." } }, 
+  { id: "qxoAw5a1bIc",
+    en: { title: "Seeta Swayamvara", caption: "Written by Ramaprasad K V." },
+    kn: { title: "ಸೀತಾ ಸ್ವಯಂವರ", caption: "ರಾಮಪ್ರಸಾದ್ ಅವರ ಕಿರುಗಬ್ಬ." } },
 
-           { id: "iBcWsa2Ilas", 
-    en: { title: "Spring ", caption: "As seen in Kumaravyasa Bharata." },
-    kn: { title: "ವಸಂತ ವರ್ಣನೆ", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದಲ್ಲಿ ಕಾಣುವಂತೆ." } },  
+  { id: "iBcWsa2Ilas",
+    en: { title: "Spring", caption: "As seen in Kumaravyasa Bharata." },
+    kn: { title: "ವಸಂತ ವರ್ಣನೆ", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದಲ್ಲಿ ಕಾಣುವಂತೆ." } },
 
-             { id: "VS5UHpRxzuo", 
-    en: { title: "Geeta Ramayana Part 1  ", caption: "Written by Sri Mysore Nataraja." },
-    kn: { title: "ಗೀತ ರಾಮಾಯಣ ಭಾಗ 1", caption: "ಮೈಸೂರು ನಟರಾಜ ಅವರ ಕಾವ್ಯದ ಪ್ರಸ್ತುತಿ ." } },  
+  { id: "VS5UHpRxzuo",
+    en: { title: "Geeta Ramayana Part 1", caption: "Written by Sri Mysore Nataraja." },
+    kn: { title: "ಗೀತ ರಾಮಾಯಣ ಭಾಗ 1", caption: "ಮೈಸೂರು ನಟರಾಜ ಅವರ ಕಾವ್ಯದ ಪ್ರಸ್ತುತಿ." } },
 
-               { id: "4WmqU_czjUw", 
-    en: { title: "Geeta Ramayana Part 2  ", caption: "Written by Sri Mysore Nataraja." },
-    kn: { title: "ಗೀತ ರಾಮಾಯಣ ಭಾಗ 2 ", caption: "ಮೈಸೂರು ನಟರಾಜ ಅವರ ಕಾವ್ಯದ ಪ್ರಸ್ತುತಿ ." } },  
+  { id: "4WmqU_czjUw",
+    en: { title: "Geeta Ramayana Part 2", caption: "Written by Sri Mysore Nataraja." },
+    kn: { title: "ಗೀತ ರಾಮಾಯಣ ಭಾಗ 2", caption: "ಮೈಸೂರು ನಟರಾಜ ಅವರ ಕಾವ್ಯದ ಪ್ರಸ್ತುತಿ." } },
 
-  { id: "j61AQQIwrfk", 
-    en: { title: "Kapatadyuta ", caption: "An episode from Sabha Parva of Kumaravyasa Bharata." },
-    kn: { title: "ಕಪಟದ್ಯೂತ", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದ ಸಭಾಪರ್ವದಿಂದ ಒಂದು ಪ್ರಸಂಗ." } }   
+  { id: "j61AQQIwrfk",
+    en: { title: "Kapatadyuta", caption: "An episode from Sabha Parva of Kumaravyasa Bharata." },
+    kn: { title: "ಕಪಟದ್ಯೂತ", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದ ಸಭಾಪರ್ವದಿಂದ ಒಂದು ಪ್ರಸಂಗ." } }
 
+  /* ── ADD NEW VIDEOS ABOVE THIS LINE ────────────────────────
+     Copy the block template from the comment at the top.
+     Remember: add a comma after the } of the previous entry.
+     ────────────────────────────────────────────────────────── */
 
-  
+]; /* end VIDEOS */
+
+/* ═══════════════════════════════════════════════════════════════
+   NAV SECTIONS
+   ═══════════════════════════════════════════════════════════════ */
+const NAV_SECTIONS = [
+  { en:"Compositions",      kn:"ರಚನೆಗಳು",        url:"https://hamsanandi.github.io/compositions/" },
+  { en:"Articles",          kn:"ಲೇಖನಗಳು",         url:"https://hamsanandi.github.io/articles/" },
+  { en:"Books",             kn:"ಪುಸ್ತಕಗಳು",       url:"https://hamsanandi.github.io/books/" },
+  { en:"Metrical Poetry",   kn:"ಛಂದೋಬದ್ಧ ಕಾವ್ಯ",  url:"https://hamsanandi.github.io/poetry/" },
+  { en:"Stage Productions", kn:"ರಂಗಪ್ರಯೋಗಗಳು",   url:"https://hamsanandi.github.io/stage-productions/" },
+  { en:"Gamaka Vachana",    kn:"ಗಮಕ ವಾಚನ",        url:"https://hamsanandi.github.io/gamaka-vachana/", current:true },
+  { en:"Translations",      kn:"ಅನುವಾದಗಳು",       url:"https://hamsanandi.github.io/translations/" },
+  { en:"Reviews",           kn:"ವಿಮರ್ಶೆಗಳು",      url:"https://hamsanandi.github.io/reviews/" }
+  // { en:"Kaleidoscope", kn:"ವೈವಿಧ್ಯ", url:"https://hamsanandi.github.io/kaleidoscope/" }  ← uncomment when live
 ];
 
+/* ═══════════════════════════════════════════════════════════════
+   RENDER
+   ═══════════════════════════════════════════════════════════════ */
 let lang = 'en';
+
+function renderNav(l) {
+  const s = STR[l];
+  const navHome = document.getElementById('navHome');
+  navHome.textContent = s.navHome;
+  navHome.className   = s.navHomeClass;
+  const navLinks = document.getElementById('navLinks');
+  navLinks.innerHTML  = '';
+  NAV_SECTIONS.forEach(sec => {
+    const a = document.createElement('a');
+    a.href        = sec.url;
+    a.textContent = sec[l];
+    a.className   = 'nav-link' + (l === 'kn' ? ' kn' : '') + (sec.current ? ' active-section' : '');
+    navLinks.appendChild(a);
+  });
+}
 
 function renderVideos(l) {
   const grid = document.getElementById('videoGrid');
   grid.innerHTML = '';
-
   VIDEOS.forEach(v => {
     const card = document.createElement('div');
     card.className = 'video-card';
-    
     const titleClass = 'video-title' + (l === 'kn' ? ' kn' : '');
-    const capClass = 'video-caption' + (l === 'kn' ? ' kn' : '');
-    
-    // Maxresdefault safely pulls sharp 1280x720 HD images directly from YouTube
+    const capClass   = 'video-caption' + (l === 'kn' ? ' kn' : '');
     card.innerHTML = `
       <div class="video-wrapper" id="wrap-${v.id}">
-        <div class="video-placeholder" style="background-image: url('https://img.youtube.com/vi/${v.id}/maxresdefault.jpg');" onclick="loadLivePlayer('${v.id}')">
+        <div class="video-placeholder" style="background-image:url('https://img.youtube.com/vi/${v.id}/maxresdefault.jpg');" onclick="loadLivePlayer('${v.id}')">
           <div class="play-btn-overlay"></div>
         </div>
       </div>
       <div class="video-meta">
         <div class="${titleClass}">${v[l].title}</div>
         <div class="${capClass}">${v[l].caption}</div>
-      </div>
-    `;
+      </div>`;
     grid.appendChild(card);
   });
 }
 
 function loadLivePlayer(id) {
-  const targetWrapper = document.getElementById('wrap-' + id);
-  targetWrapper.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1" allow="autoplay" allowfullscreen></iframe>`;
+  const w = document.getElementById('wrap-' + id);
+  w.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1" allow="autoplay" allowfullscreen></iframe>`;
 }
 
 function applyLang(l) {
   const s = STR[l];
-  document.getElementById('siteName').textContent = s.siteName;
-  document.getElementById('siteName').className = 'site-name' + (l === 'kn' ? ' kn' : '');
-  document.getElementById('siteTagline').textContent = s.tagline;
-  document.getElementById('siteTagline').className = 'site-tagline' + (l === 'kn' ? ' kn' : ' en');
-  document.getElementById('descContent').innerHTML = s.descHtml;
+  document.getElementById('htmlRoot').lang              = l === 'kn' ? 'kn' : 'en';
+  document.getElementById('pageTitle').textContent      = s.pageTitle;
+  document.getElementById('pageTitle').className        = s.pageTitleClass;
+  document.getElementById('pageSubtitle').textContent   = s.pageSubtitle;
+  document.getElementById('pageSubtitle').className     = s.pageSubtitleClass;
+  document.getElementById('descContent').innerHTML      = s.descHtml;
   document.getElementById('sectionHeading').textContent = s.sectionHeading;
-  document.getElementById('sectionHeading').className = 'section-heading' + (l === 'kn' ? ' kn' : '');
-  document.getElementById('linkTitle').textContent = s.linkTitle;
-  document.getElementById('linkTitle').className = 'card-title' + (l === 'kn' ? ' kn' : '');
-  document.getElementById('linkDesc').textContent = s.linkDesc;
-  document.getElementById('linkDesc').className = 'card-desc' + (l === 'kn' ? ' kn' : '');
-  document.getElementById('backLink').textContent = s.backLink;
-  document.getElementById('navFooter').className = 'nav-footer' + (l === 'kn' ? ' kn' : '');
-
+  document.getElementById('sectionHeading').className   = 'section-heading' + (l === 'kn' ? ' kn' : '');
+  document.getElementById('linkTitle').textContent      = s.linkTitle;
+  document.getElementById('linkTitle').className        = 'card-title' + (l === 'kn' ? ' kn' : '');
+  document.getElementById('linkDesc').textContent       = s.linkDesc;
+  document.getElementById('linkDesc').className         = 'card-desc' + (l === 'kn' ? ' kn' : '');
+  document.getElementById('footerEl').textContent       = s.footer;
+  document.getElementById('footerEl').className         = 'footer ' + (s.footerClass || '');
   document.getElementById('btnEN').classList.toggle('active', l === 'en');
   document.getElementById('btnKN').classList.toggle('active', l === 'kn');
-  
+  renderNav(l);
   renderVideos(l);
 }
 
