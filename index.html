@@ -111,6 +111,37 @@ body {
 .video-caption { font-size: 0.82em; color: var(--meta); margin-top: 4px; line-height: 1.5; }
 .video-caption.kn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.76rem; }
 
+/* ── About section ── */
+.about-section {
+  max-width: 620px; margin: 32px auto 0; padding: 0 20px;
+  line-height: 1.8; font-size: 0.95em; color: var(--text); text-align: center;
+}
+.about-section.kn { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.9em; }
+.about-title {
+  font-family: 'Cinzel', serif; font-size: 0.75rem;
+  letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; margin-bottom: 12px;
+}
+.about-title.kn {
+  font-family: 'Noto Serif Kannada', serif; letter-spacing: 0.05em;
+  text-transform: none; font-size: 1rem;
+}
+Change 4 — Add to STR.en and STR.kn in the script:
+js// In STR.en:
+aboutTitle: "About the Artist", aboutTitleClass: "about-title",
+aboutSectionClass: "about-section",
+aboutText: "Ramaprasad KV is a vaggeyakara, translator, and author working within the Karnataka Sangeeta and Kannada literary traditions.",
+
+// In STR.kn:
+aboutTitle: "ಕಲಾವಿದರ ಕುರಿತು", aboutTitleClass: "about-title kn",
+aboutSectionClass: "about-section kn",
+aboutText: "ರಾಮಪ್ರಸಾದ್ ಕೆ.ವಿ. ಅವರು ಕರ್ನಾಟಕ ಸಂಗೀತ ಮತ್ತು ಕನ್ನಡ ಸಾಹಿತ್ಯ ಪರಂಪರೆಯ ವಾಗ್ಗೇಯಕಾರರು, ಅನುವಾದಕರು ಮತ್ತು ಲೇಖಕರು.",
+Change 5 — Wire the About fields in applyLang(), after the footerEl lines:
+jsdocument.getElementById('aboutTitle').textContent   = s.aboutTitle;
+document.getElementById('aboutTitle').className     = s.aboutTitleClass;
+document.getElementById('aboutSection').className   = s.aboutSectionClass;
+document.getElementById('aboutText').textContent    = s.aboutText;
+This file is large and complex so I'd rather you apply these targeted edits than risk me recreating it incorrectly. Ready for translations/index.html.
+  
 /* ── Divider & footer ── */
 .section-divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); margin: 48px 20px 0; }
 a { text-decoration: none; color: var(--gold-light); }
@@ -153,7 +184,7 @@ footer.kn { font-family: 'Noto Sans Kannada', sans-serif; }
   <div class="desc-block" id="descContent"></div>
   <a href="https://gamakakala.org/" target="_blank" class="link-block">
     <div>
-      <div class="card-icon-wrap">🌐</div>
+      <div class="card-icon-wrap">-></div>
       <div class="card-title" id="linkTitle">Gamaka Kala Vedike</div>
       <div class="card-desc" id="linkDesc">Explore the official portal of the North America Gamaka Kala Vedike dedicated to preserving and supporting classical recitation.</div>
     </div>
@@ -165,8 +196,16 @@ footer.kn { font-family: 'Noto Sans Kannada', sans-serif; }
 <div class="video-grid" id="videoGrid"></div>
 
 <hr class="section-divider">
+  <section class="about-section" id="aboutSection">
+  <div class="about-title" id="aboutTitle">About the Artist</div>
+  <p id="aboutText">Ramaprasad KV is a vaggeyakara, translator, and author working within the Karnataka Sangeeta and Kannada literary traditions.</p>
+  <p style="margin-top:10px;"><a href="https://hamsanandi.github.io/#aboutSection">Read more ›</a> &nbsp;·&nbsp; Instagram: <a href="https://www.instagram.com/hamsanandi" target="_blank">@hamsanandi</a></p>
+</section>
 <footer id="footerEl">Hosted on GitHub Pages</footer>
-
+document.getElementById('aboutTitle').textContent   = s.aboutTitle;
+document.getElementById('aboutTitle').className     = s.aboutTitleClass;
+document.getElementById('aboutSection').className   = s.aboutSectionClass;
+document.getElementById('aboutText').textContent    = s.aboutText;
 <script>
 /* ═══════════════════════════════════════════════════════════════
    BILINGUAL UI STRINGS
