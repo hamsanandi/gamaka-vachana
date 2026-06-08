@@ -125,23 +125,7 @@ body {
   font-family: 'Noto Serif Kannada', serif; letter-spacing: 0.05em;
   text-transform: none; font-size: 1rem;
 }
-Change 4 — Add to STR.en and STR.kn in the script:
-js// In STR.en:
-aboutTitle: "About the Artist", aboutTitleClass: "about-title",
-aboutSectionClass: "about-section",
-aboutText: "Ramaprasad KV is a vaggeyakara, translator, and author working within the Karnataka Sangeeta and Kannada literary traditions.",
 
-// In STR.kn:
-aboutTitle: "ಕಲಾವಿದರ ಕುರಿತು", aboutTitleClass: "about-title kn",
-aboutSectionClass: "about-section kn",
-aboutText: "ರಾಮಪ್ರಸಾದ್ ಕೆ.ವಿ. ಅವರು ಕರ್ನಾಟಕ ಸಂಗೀತ ಮತ್ತು ಕನ್ನಡ ಸಾಹಿತ್ಯ ಪರಂಪರೆಯ ವಾಗ್ಗೇಯಕಾರರು, ಅನುವಾದಕರು ಮತ್ತು ಲೇಖಕರು.",
-Change 5 — Wire the About fields in applyLang(), after the footerEl lines:
-jsdocument.getElementById('aboutTitle').textContent   = s.aboutTitle;
-document.getElementById('aboutTitle').className     = s.aboutTitleClass;
-document.getElementById('aboutSection').className   = s.aboutSectionClass;
-document.getElementById('aboutText').textContent    = s.aboutText;
-This file is large and complex so I'd rather you apply these targeted edits than risk me recreating it incorrectly. Ready for translations/index.html.
-  
 /* ── Divider & footer ── */
 .section-divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); margin: 48px 20px 0; }
 a { text-decoration: none; color: var(--gold-light); }
@@ -184,7 +168,7 @@ footer.kn { font-family: 'Noto Sans Kannada', sans-serif; }
   <div class="desc-block" id="descContent"></div>
   <a href="https://gamakakala.org/" target="_blank" class="link-block">
     <div>
-      <div class="card-icon-wrap">-></div>
+      <div class="card-icon-wrap">→</div>
       <div class="card-title" id="linkTitle">Gamaka Kala Vedike</div>
       <div class="card-desc" id="linkDesc">Explore the official portal of the North America Gamaka Kala Vedike dedicated to preserving and supporting classical recitation.</div>
     </div>
@@ -196,20 +180,16 @@ footer.kn { font-family: 'Noto Sans Kannada', sans-serif; }
 <div class="video-grid" id="videoGrid"></div>
 
 <hr class="section-divider">
-  <section class="about-section" id="aboutSection">
+
+<section class="about-section" id="aboutSection">
   <div class="about-title" id="aboutTitle">About the Artist</div>
   <p id="aboutText">Ramaprasad KV is a vaggeyakara, translator, and author working within the Karnataka Sangeeta and Kannada literary traditions.</p>
   <p style="margin-top:10px;"><a href="https://hamsanandi.github.io/#aboutSection">Read more ›</a> &nbsp;·&nbsp; Instagram: <a href="https://www.instagram.com/hamsanandi" target="_blank">@hamsanandi</a></p>
 </section>
+
 <footer id="footerEl">Hosted on GitHub Pages</footer>
-document.getElementById('aboutTitle').textContent   = s.aboutTitle;
-document.getElementById('aboutTitle').className     = s.aboutTitleClass;
-document.getElementById('aboutSection').className   = s.aboutSectionClass;
-document.getElementById('aboutText').textContent    = s.aboutText;
+
 <script>
-/* ═══════════════════════════════════════════════════════════════
-   BILINGUAL UI STRINGS
-   ═══════════════════════════════════════════════════════════════ */
 const STR = {
   en: {
     navHome: "Hamsanandi", navHomeClass: "nav-home",
@@ -220,6 +200,9 @@ const STR = {
     linkTitle: "Gamaka Kala Vedike",
     linkDesc: "Explore the official portal of the North America Gamaka Kala Vedike dedicated to preserving and supporting classical recitation.",
     footer: "Hosted on GitHub Pages", footerClass: "",
+    aboutTitle: "About the Artist", aboutTitleClass: "about-title",
+    aboutSectionClass: "about-section",
+    aboutText: "Ramaprasad KV is a vaggeyakara, translator, and author working within the Karnataka Sangeeta and Kannada literary traditions.",
     descHtml: `
       <p>Gamaka, widely known as Kaavyavaachana, is a hallmark classical art form native to the heritage of Karnataka. It represents an exceptional synthesis of classical Kannada poetry (Kavya) and musical exposition. In a traditional recital, a piece of written composition is brought to life through a meticulous melodic delivery unconstrained by fixed rhythmic beats (tala), optimizing the ragas or custom melody patterns (dhaati) to heighten the emotional core (rasa) and philosophical value of the text.</p>
       <p>The practice traditionally highlights a fluid division of labor between two exponents: the <i>Gamaki</i>, who beautifully sings and projects the verses, and the <i>Vyakhyanakara</i>, who steps in immediately to offer text interpretations, comparative contextual analogies, and literary commentary. Drawing heavily from ancient epic classics like Kumaravyasa's <i>Karnata Bharata Kathamanjari</i>, Lakshmeesha's <i>Jaimini Bharata</i>, and Torave Ramayana, Gamaka remains a live repository of oral transmission and classical storytelling.</p>
@@ -234,6 +217,9 @@ const STR = {
     linkTitle: "ಗಮಕ ಕಲಾ ವೇದಿಕೆ",
     linkDesc: "ಉತ್ತರ ಅಮೆರಿಕಾದಲ್ಲಿ ಶಾಸ್ತ್ರೀಯ ಕಾವ್ಯ ವಾಚನ ಪ್ರಕಾರವನ್ನು ಪ್ರೋತ್ಸಾಹಿಸುವ ಗಮಕ ಕಲಾ ವೇದಿಕೆಯ ಅಧಿಕೃತ ಜಾಲತಾಣವನ್ನು ವೀಕ್ಷಿಸಿ.",
     footer: "GitHub Pages ನಲ್ಲಿ ಪ್ರಕಾಶಿತ", footerClass: "kn",
+    aboutTitle: "ಕಲಾವಿದರ ಕುರಿತು", aboutTitleClass: "about-title kn",
+    aboutSectionClass: "about-section kn",
+    aboutText: "ರಾಮಪ್ರಸಾದ್ ಕೆ.ವಿ. ಅವರು ಕರ್ನಾಟಕ ಸಂಗೀತ ಮತ್ತು ಕನ್ನಡ ಸಾಹಿತ್ಯ ಪರಂಪರೆಯ ವಾಗ್ಗೇಯಕಾರರು, ಅನುವಾದಕರು ಮತ್ತು ಲೇಖಕರು.",
     descHtml: `
       <p class="kn">ಗಮಕವಾಚನ ಅಥವಾ ಕಾವ್ಯವಾಚನವು ಕರ್ನಾಟಕದ ವಿಶಿಷ್ಟ ಹಾಗೂ ಹೆಮ್ಮೆಯ ಶಾಸ್ತ್ರೀಯ ಕಲಾಪ್ರಕಾರವಾಗಿದೆ. ಹಿಂದೆ ದೇಶದ ಎಲ್ಲೆಡೆಯಲ್ಲೂ ಪ್ರಸಿದ್ಧವಾಗಿದ್ದ ಈ ಕಲೆ ಈಗ ಕನ್ನಡದಲ್ಲಿ ಹೆಚ್ಚು ಪ್ರಚಲಿತವಾಗಿದೆ. ಇದು ಪ್ರೌಢ ಕನ್ನಡ ಕಾವ್ಯ ಸಾಹಿತ್ಯ ಮತ್ತು ಸಂಗೀತದ ಅತ್ಯದ್ಭುತ ಸಮ್ಮಿಲನವಾಗಿದೆ. ಗಮಕವಾಚನಗಳಲ್ಲಿ ಪ್ರಸಿದ್ಧ ಕಾವ್ಯಭಾಗಗಳನ್ನು ಯಾವುದೇ ನಿರ್ದಿಷ್ಟ ತಾಳದ ಚೌಕಟ್ಟಿಗೆ ಅಳವಡಿಸದೇ, ಕಾವ್ಯದ ಭಾವಕ್ಕೆ ತಕ್ಕುದಾದ ರಾಗ ಅಥವಾ ಧಾಟಿಗಳನ್ನು ಆಯ್ದುಕೊಂಡು, ರಸೋತ್ಪತ್ತಿಗೆ ಪ್ರಮುಖ ಆದ್ಯತೆ ನೀಡಿ ಹಾಡಲಾಗುತ್ತದೆ.</p>
       <p class="kn">ಈ ಕಲಾಪ್ರಕಾರದಲ್ಲಿ ಸಾಮಾನ್ಯವಾಗಿ ಇಬ್ಬರು ಕಲಾವಿದರು ಜೊತೆಯಾಗಿ ಭಾಗವಹಿಸುತ್ತಾರೆ: ಒಬ್ಬರು ಕಾವ್ಯದ ಪದ್ಯಗಳನ್ನು ಸುಶ್ರಾವ್ಯವಾಗಿ ವಾಚಿಸುವ 'ಗಮಕಿ', ಮತ್ತು ಮತ್ತೊಬ್ಬರು ಆ ಪದ್ಯಗಳ ಸಾಹಿತ್ಯಿಕ ಚೌಕಟ್ಟು, ಒಳಹೊರಗು ಹಾಗೂ ತಾತ್ಪರ್ಯಗಳನ್ನು ವಿವರಣಾತ್ಮಕವಾಗಿ ಪ್ರಸ್ತುತಪಡಿಸುವ 'ವ್ಯಾಖ್ಯಾನಕಾರರು'. ಕುಮಾರವ್ಯಾಸ ಭಾರತ, ಲಕ್ಷ್ಮೀಶನ ಜೈಮಿನಿ ಭಾರತ, ತೊರವೆ ರಾಮಾಯಣ ಮುಂತಾದ ಅದ್ಭುತ ಕಾವ್ಯ ಪರಂಪರೆಯನ್ನು ಇಂದಿಗೂ ಜೀವಂತವಾಗಿರಿಸುವಲ್ಲಿ ಗಮಕ ಕಲೆ ಪ್ರಮುಖ ಪಾತ್ರ ವಹಿಸಿದೆ. ಹಲವು ಕವಿಗಳ ರಚನೆಗಳು ಜನಪ್ರಿಯವಾಗುವುದರಲ್ಲಿ ಗಮಕಿಗಳ ಪಾತ್ರ ದೊಡ್ಡದು.</p>
@@ -241,98 +227,67 @@ const STR = {
   }
 };
 
-/* ═══════════════════════════════════════════════════════════════
-   VIDEO DATA
-   ─────────────────────────────────────────────────────────────
-   To add a new video, copy the block below and fill in the fields.
-   The "id" is the YouTube video ID (the part after ?v= in the URL).
-
-   { id: "YouTubeID",
-     en: { title: "English title", caption: "Short description." },
-     kn: { title: "ಕನ್ನಡ ಶೀರ್ಷಿಕೆ", caption: "ಸಂಕ್ಷಿಪ್ತ ವಿವರಣೆ." } },
-   ═══════════════════════════════════════════════════════════════ */
 const VIDEOS = [
-
   { id: "C1hW9_oYy_k",
     en: { title: "Gamaka Kala Vedike Presentation", caption: "Special recital and introductory discourse features." },
     kn: { title: "ಗಮಕ ಕಲಾ ವೇದಿಕೆ ಪ್ರಸ್ತುತಿ", caption: "ವಿಶೇಷ ಕಾವ್ಯ ವಾಚನ ಮತ್ತು ಪರಿಚಯಾತ್ಮಕ ಉಪನ್ಯಾಸ ಮಾಲೆ." } },
-
   { id: "JpHeMVKU_mM",
     en: { title: "Seeta Svayamvara", caption: "An episode from Ramavatara kavya of Prof Narahari." },
     kn: { title: "ಸೀತಾಸ್ವಯಂವರ", caption: "ಪ್ರೊ.ನರಹರಿ ಅವರ ರಾಮಾವತಾರ ಕಾವ್ಯದಿಂದ ಒಂದು ಪ್ರಸಂಗ." } },
-
   { id: "wby1gatygE8",
     en: { title: "Keechaka Vadhe", caption: "An episode from Kumaravyasa Bharata." },
     kn: { title: "ಕೀಚಕವಧೆ", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದಿಂದ ಒಂದು ಪ್ರಸಂಗದ ವಾಚನ ವ್ಯಾಖ್ಯಾನ." } },
-
   { id: "qrao1iMbrts",
     en: { title: "Gadayuddha", caption: "An episode from Kumaravyasa Bharata." },
     kn: { title: "ಗದಾಯುದ್ಧ", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದಿಂದ ಒಂದು ಪ್ರಸಂಗದ ವಾಚನ ವ್ಯಾಖ್ಯಾನ." } },
-
   { id: "tOUg3vVQ8lA",
     en: { title: "Seetaramakalyana", caption: "A short kavya written by Ramaprasad K V." },
     kn: { title: "ಸೀತಾರಾಮಕಲ್ಯಾಣ", caption: "ರಾಮಪ್ರಸಾದ್ ಅವರ ಖಂಡಕಾವ್ಯದ ವಾಚನ ವ್ಯಾಖ್ಯಾನ." } },
-
   { id: "ePnBubgnutg",
     en: { title: "Durvasatithya 1", caption: "An episode from the Aranya Parva of Kumaravyasa Bharata." },
     kn: { title: "ದೂರ್ವಾಸಾತಿಥ್ಯ 1", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದ ಅರಣ್ಯಪರ್ವದಿಂದ ಒಂದು ಪ್ರಸಂಗ." } },
-
   { id: "sDulbgM9zFE",
     en: { title: "Durvasatithya 2", caption: "An episode from Kumaravyasa Bharata." },
     kn: { title: "ದೂರ್ವಾಸಾತಿಥ್ಯ 2", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದ ಅರಣ್ಯಪರ್ವದಿಂದ ಒಂದು ಪ್ರಸಂಗದ ವಾಚನ ವ್ಯಾಖ್ಯಾನ." } },
-
   { id: "wuMXIJ529GE",
     en: { title: "What is the art of Gamaka? A lecture demonstration", caption: "The history of the art and current trends." },
     kn: { title: "ಗಮಕ ಕಲೆ ಎಂದರೇನು? ಒಂದು ಪ್ರಾತ್ಯಕ್ಷಿಕೆ", caption: "ಗಮಕ ಕಲೆಯ ಚರಿತ್ರೆ, ಮತ್ತು ಹೇಗೆ ಕಾವ್ಯದ ಭಾವಪ್ರಕಟಣೆಯಲ್ಲಿ ಅದರ ಪ್ರಭಾವ." } },
-
   { id: "aEa04Odq45E",
     en: { title: "Durvasatithya 3", caption: "An episode from Kumaravyasa Bharata." },
     kn: { title: "ದೂರ್ವಾಸಾತಿಥ್ಯ 3", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದ ಅರಣ್ಯಪರ್ವದಿಂದ ಒಂದು ಪ್ರಸಂಗದ ವಾಚನ ವ್ಯಾಖ್ಯಾನ." } },
-
   { id: "wNrr9XDmI90",
     en: { title: "Kumaravyasa Namana", caption: "Written by Ramaprasad K V." },
     kn: { title: "ಕುಮಾರವ್ಯಾಸ ನಮನ", caption: "ರಾಮಪ್ರಸಾದ್ ಕೆ ವಿ ಅವರ ಖಂಡಕಾವ್ಯ." } },
-
   { id: "ifwnLcNUksg",
     en: { title: "Gograhana", caption: "An episode from Virata Parva of Kumaravyasa Bharata." },
     kn: { title: "ಗೋಗ್ರಹಣ", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದ ವಿರಾಟಪರ್ವದಿಂದ ಒಂದು ಪ್ರಸಂಗ." } },
-
   { id: "BSf3QL_Ru9g",
     en: { title: "Durvasatithya 4", caption: "An episode from Aranya Parva of Kumaravyasa Bharata." },
     kn: { title: "ದೂರ್ವಾಸಾತಿಥ್ಯ 4", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದ ಅರಣ್ಯಪರ್ವದಿಂದ ಒಂದು ಪ್ರಸಂಗದ ವಾಚನ ವ್ಯಾಖ್ಯಾನ." } },
-
   { id: "Pg8j2S-DYr0",
     en: { title: "BhaktaKutumbi", caption: "An episode from Udyoga Parva of Kumaravyasa Bharata." },
     kn: { title: "ಭಕ್ತಕುಟುಂಬಿ ಸಾರಥಿಯಾದನು", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದ ಉದ್ಯೋಗಪರ್ವದಿಂದ ಒಂದು ಪ್ರಸಂಗದ ವಾಚನ ವ್ಯಾಖ್ಯಾನ." } },
-
   { id: "6E-Rkt7PpJM",
     en: { title: "Pashupatastra Pradana", caption: "An episode from Aranya Parva of Kumaravyasa Bharata." },
     kn: { title: "ಪಾಶುಪತಾಸ್ತ್ರ ಪ್ರದಾನ", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದ ಅರಣ್ಯಪರ್ವದಿಂದ ಒಂದು ಪ್ರಸಂಗದ ವಾಚನ ವ್ಯಾಖ್ಯಾನ." } },
-
   { id: "auz_X0NtMUk",
     en: { title: "Draupadi", caption: "As seen in Kumaravyasa Bharata." },
     kn: { title: "ದ್ರೌಪದಿ", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದಲ್ಲಿ ಕಾಣುವಂತೆ." } },
-
   { id: "fV-4UbOLzUw",
     en: { title: "Srikrishna Sarathya", caption: "From Udyoga Parva of Kumaravyasa Bharata." },
     kn: { title: "ಶ್ರೀಕೃಷ್ಣ ಸಾರಥ್ಯ", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದ ಉದ್ಯೋಗಪರ್ವದಿಂದ." } },
-
   { id: "qxoAw5a1bIc",
     en: { title: "Seeta Swayamvara", caption: "Written by Ramaprasad K V." },
     kn: { title: "ಸೀತಾ ಸ್ವಯಂವರ", caption: "ರಾಮಪ್ರಸಾದ್ ಅವರ ಕಿರುಗಬ್ಬ." } },
-
   { id: "iBcWsa2Ilas",
     en: { title: "Spring", caption: "As seen in Kumaravyasa Bharata." },
     kn: { title: "ವಸಂತ ವರ್ಣನೆ", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದಲ್ಲಿ ಕಾಣುವಂತೆ." } },
-
   { id: "VS5UHpRxzuo",
     en: { title: "Geeta Ramayana Part 1", caption: "Written by Sri Mysore Nataraja." },
     kn: { title: "ಗೀತ ರಾಮಾಯಣ ಭಾಗ 1", caption: "ಮೈಸೂರು ನಟರಾಜ ಅವರ ಕಾವ್ಯದ ಪ್ರಸ್ತುತಿ." } },
-
   { id: "4WmqU_czjUw",
     en: { title: "Geeta Ramayana Part 2", caption: "Written by Sri Mysore Nataraja." },
     kn: { title: "ಗೀತ ರಾಮಾಯಣ ಭಾಗ 2", caption: "ಮೈಸೂರು ನಟರಾಜ ಅವರ ಕಾವ್ಯದ ಪ್ರಸ್ತುತಿ." } },
-
   { id: "j61AQQIwrfk",
     en: { title: "Kapatadyuta", caption: "An episode from Sabha Parva of Kumaravyasa Bharata." },
     kn: { title: "ಕಪಟದ್ಯೂತ", caption: "ಕುಮಾರವ್ಯಾಸ ಭಾರತದ ಸಭಾಪರ್ವದಿಂದ ಒಂದು ಪ್ರಸಂಗ." } }
@@ -344,9 +299,6 @@ const VIDEOS = [
 
 ]; /* end VIDEOS */
 
-/* ═══════════════════════════════════════════════════════════════
-   NAV SECTIONS
-   ═══════════════════════════════════════════════════════════════ */
 const NAV_SECTIONS = [
   { en:"Compositions",      kn:"ರಚನೆಗಳು",        url:"https://hamsanandi.github.io/compositions/" },
   { en:"Articles",          kn:"ಲೇಖನಗಳು",         url:"https://hamsanandi.github.io/articles/" },
@@ -359,9 +311,6 @@ const NAV_SECTIONS = [
   // { en:"Kaleidoscope", kn:"ವೈವಿಧ್ಯ", url:"https://hamsanandi.github.io/kaleidoscope/" }  ← uncomment when live
 ];
 
-/* ═══════════════════════════════════════════════════════════════
-   RENDER
-   ═══════════════════════════════════════════════════════════════ */
 let lang = 'en';
 
 function renderNav(l) {
@@ -421,6 +370,10 @@ function applyLang(l) {
   document.getElementById('linkTitle').className        = 'card-title' + (l === 'kn' ? ' kn' : '');
   document.getElementById('linkDesc').textContent       = s.linkDesc;
   document.getElementById('linkDesc').className         = 'card-desc' + (l === 'kn' ? ' kn' : '');
+  document.getElementById('aboutTitle').textContent     = s.aboutTitle;
+  document.getElementById('aboutTitle').className       = s.aboutTitleClass;
+  document.getElementById('aboutSection').className     = s.aboutSectionClass;
+  document.getElementById('aboutText').textContent      = s.aboutText;
   document.getElementById('footerEl').textContent       = s.footer;
   document.getElementById('footerEl').className         = 'footer ' + (s.footerClass || '');
   document.getElementById('btnEN').classList.toggle('active', l === 'en');
